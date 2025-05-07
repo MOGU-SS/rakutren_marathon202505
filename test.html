@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>楽天 お買い物マラソン - MOGUストア</title>
+    <link rel="stylesheet" href="test.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- セールヘッダー -->
+      <header id="top" class="sale-header">
+        <img
+          src="https://www.rakuten.ne.jp/gold/mogustore/sales/rakuten_marathon/202503/statics/sale_header.svg"
+          alt="お買い物マラソン"
+          class="sale-header-img"
+        />
+        <!-- カウントダウン部分 -->
+        <div class="calendar-countdown">
+          <div class="calendar-title">セール終了まで残り</div>
+          <div class="calendar-container">
+            <div class="calendar-item">
+              <div class="calendar-page">
+                <span id="countdown-days" class="calendar-number">00</span>
+              </div>
+              <div class="calendar-unit">日</div>
+            </div>
+            <div class="calendar-item">
+              <div class="calendar-page">
+                <span id="countdown-hours" class="calendar-number">00</span>
+              </div>
+              <div class="calendar-unit">時間</div>
+            </div>
+            <div class="calendar-item">
+              <div class="calendar-page">
+                <span id="countdown-minutes" class="calendar-number">00</span>
+              </div>
+              <div class="calendar-unit">分</div>
+            </div>
+            <div class="calendar-item">
+              <div class="calendar-page">
+                <span id="countdown-seconds" class="calendar-number">00</span>
+              </div>
+              <div class="calendar-unit">秒</div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- クーポンセクション -->
+      <section class="coupon-section">
+        <div class="coupon-logo-container">
+          <img
+            src="https://www.rakuten.ne.jp/gold/mogustore/sales/rakuten_marathon/202503/statics/coupon_logo.svg"
+            alt="お得にご購入！クーポンGET"
+            class="coupon-logo"
+          />
+        </div>
+        <a
+          href="https://coupon.rakuten.co.jp/getCoupon?getkey=NEpVRy1ZQU5CLU9QVlEtRU1aUg--&rt="
+          target="_blank"
+          rel="noopener noreferrer"
+          class="coupon-link"
+        >
+          <img
+            src="https://www.rakuten.ne.jp/gold/mogustore/sales/rakuten_marathon/202503/statics/coupon.svg"
+            alt="お買い物マラソン限定 全品5%OFF！クーポンをGETする"
+            class="coupon-card"
+          />
+        </a>
+      </section>
+
+      <!-- カテゴリーセクション -->
+      <section class="category-wrapper">
+        <!-- カテゴリーナビゲーション部分 -->
+        <div id="category-section" class="category-section">
+          <div class="category-buttons">
+            <div class="category-row">
+              <a href="#pockiri" class="category-button">
+                <div class="category-text">
+                  送料無料・1000円ポッキリ<br />お試しアイテム
+                </div>
+                <img
+                  src="https://www.rakuten.ne.jp/gold/mogustore/sales/rakuten_marathon/202503/statics/arrow.png"
+                  alt="矢印"
+                  class="category-icon"
+                />
+              </a>
+              <a href="#popular" class="category-button">
+                <div class="category-text">今売れている<br />人気アイテム</div>
+                <img
+                  src="https://www.rakuten.ne.jp/gold/mogustore/sales/rakuten_marathon/202503/statics/arrow.png"
+                  alt="矢印"
+                  class="category-icon"
+                />
+              </a>
+            </div>
+            <div class="category-row">
+              <a href="#new" class="category-button">
+                <div class="category-text">新商品も<br />続々登場！</div>
+                <img
+                  src="https://www.rakuten.ne.jp/gold/mogustore/sales/rakuten_marathon/202503/statics/arrow.png"
+                  alt="矢印"
+                  class="category-icon"
+                />
+              </a>
+              <a href="#bargain" class="category-button">
+                <div class="category-text">セット販売や<br />お買い得品</div>
+                <img
+                  src="https://www.rakuten.ne.jp/gold/mogustore/sales/rakuten_marathon/202503/statics/arrow.png"
+                  alt="矢印"
+                  class="category-icon"
+                />
+              </a>
+            </div>
+            <div class="category-row">
+              <a href="#gw_travel" class="category-button">
+                <div class="category-text">GWのおすすめ<br />アイテム</div>
+                <img
+                  src="https://www.rakuten.ne.jp/gold/mogustore/sales/rakuten_marathon/202503/statics/arrow.png"
+                  alt="矢印"
+                  class="category-icon"
+                />
+              </a>
+              <a href="#mothers_day" class="category-button">
+                <div class="category-text">母の日ギフト<br />特集</div>
+                <img
+                  src="https://www.rakuten.ne.jp/gold/mogustore/sales/rakuten_marathon/202503/statics/arrow.png"
+                  alt="矢印"
+                  class="category-icon"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- メインコンテンツ -->
+      <main>
+        <!-- 送料無料・1000円ポッキリセクション -->
+        <section id="pockiri" class="pockiri-section">
+          <h2 class="section-title">
+            <span>送料無料・1000円ポッキリお試しアイテム！</span>
+          </h2>
+          <div class="product-grid" id="pockiri-products">
+            <!-- 商品カードは動的に生成されます -->
+          </div>
+        </section>
+
+        <!-- 人気アイテムセクション -->
+        <section id="popular" class="popular-section">
+          <h2 class="section-title">
+            <span>今売れている人気アイテム！</span>
+          </h2>
+          <div class="product-grid" id="popular-products">
+            <!-- 商品カードは動的に生成されます -->
+          </div>
+        </section>
+
+        <!-- 新商品セクション -->
+        <section id="new" class="new-section">
+          <h2 class="section-title">
+            <span>新商品も続々登場！</span>
+          </h2>
+          <div class="product-grid" id="new-products">
+            <!-- 商品カードは動的に生成されます -->
+          </div>
+        </section>
+
+        <!-- お買い得品セクション -->
+        <section id="bargain" class="bargain-section">
+          <h2 class="section-title">
+            <span>セット販売やMOGUストア限定のお買い得品！</span>
+          </h2>
+          <div class="product-grid" id="bargain-products">
+            <!-- 商品カードは動的に生成されます -->
+          </div>
+        </section>
+
+        <!-- GW旅行セクション -->
+        <section id="gw_travel" class="gw-travel-section">
+          <h2 class="section-title">
+            <span>GWの旅行やお家でまったり…にオススメなアイテム！</span>
+          </h2>
+          <div class="product-grid" id="gw_travel-products">
+            <!-- 商品カードは動的に生成されます -->
+          </div>
+        </section>
+
+        <!-- 母の日セクション -->
+        <section id="mothers_day" class="mothers-day-section">
+          <h2 class="section-title">
+            <span
+              >母の日のプレゼントにピッタリ！可愛い上に機能的なクッション</span
+            >
+          </h2>
+          <div class="product-grid" id="mothers_day-products">
+            <!-- 商品カードは動的に生成されます -->
+          </div>
+        </section>
+      </main>
+
+      <!-- フッター -->
+      <footer class="site-footer">
+        <div class="footer-content">
+          <div class="footer-search">
+            <form
+              class="search-box"
+              action="https://search.rakuten.co.jp/search/mall/"
+              method="get"
+            >
+              <input
+                type="text"
+                name="sitem"
+                placeholder="商品を探す"
+                class="search-input"
+              />
+              <input type="hidden" name="sid" value="422608" />
+              <button type="submit" class="search-button">検索</button>
+            </form>
+          </div>
+          <div class="footer-logo-button-wrapper">
+            <a href="#top" class="footer-top-button">トップページへ</a>
+          </div>
+          <nav class="footer-nav">
+            <div class="footer-logo">
+              <img
+                src="https://www.rakuten.ne.jp/gold/mogustore/sales/rakuten_marathon/202503/statics/logo.png"
+                alt="MOGUロゴ"
+                class="mogu-logo"
+              />
+            </div>
+            <div class="social-links">
+              <span class="social-icon twitter">
+                <i class="fab fa-twitter"></i>
+              </span>
+              <span class="social-icon facebook">
+                <i class="fab fa-facebook-f"></i>
+              </span>
+              <span class="social-icon instagram">
+                <i class="fab fa-instagram"></i>
+              </span>
+              <span class="social-icon line">
+                <i class="fab fa-line"></i>
+              </span>
+            </div>
+            <ul class="footer-links">
+              <li><a href="https://www.rakuten.co.jp/mogustore/">TOP</a></li>
+              <li>
+                <a href="https://www.rakuten.co.jp/mogustore/info.html"
+                  >会社概要</a
+                >
+              </li>
+              <li><a href="https://www.rakuten.co.jp/">楽天市場</a></li>
+            </ul>
+            <div class="copyright">
+              &copy; 2025 MOGU STORE All Rights Reserved.
+            </div>
+          </nav>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- 商品データ読み込みと表示用のJavaScript -->
+    <script>
+      // 商品データを読み込む
+      async function loadProductData() {
+        try {
+          const response = await fetch("product_data.json");
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          console.error("商品データの読み込みに失敗しました:", error);
+          return null;
+        }
+      }
+
+      // 商品カードを生成する
+      function createProductCard(product) {
+        const card = document.createElement("article");
+        card.className = "product-card";
+
+        // 商品IDを取得（linkから抽出）
+        const productId =
+          product.id || product.link.split("/").pop().replace("/", "");
+        console.log(`商品: ${product.title}, ID: ${productId}`);
+
+        // 画像パスの修正（ローカルパスを本番用URLに変換）
+        let imagePath = product.imageUrl;
+        if (imagePath.startsWith("/img/rakuten_cabinet/")) {
+          // 楽天キャビネットのURLに変換
+          const fileName = imagePath.split("/").pop();
+          console.log(`商品ID: ${productId}, 元のファイル名: ${fileName}`);
+
+          // ファイル名の修正（IDと一致するように）
+          let correctedFileName = fileName;
+
+          // 特定の商品IDの場合、ファイル名を修正
+          const fileNameCorrections = {
+            "001001katakaru02": "katakaru2.jpg",
+            "002005osuwarirabura": "osuwarirabura.jpg",
+            "001001kazoku_cvrset": "kazoku_cvrset.jpg",
+            "001001kazoku_pre_cvrset_br": "kazoku_pre_cvrset_br.jpg",
+            "003001kumo_petsofa": "003001kumo_petsofa.jpg",
+            "003001kumo_petsofa_r": "003001kumo_petsofa_r.jpg",
+          };
+
+          if (fileNameCorrections[productId]) {
+            correctedFileName = fileNameCorrections[productId];
+            console.log(
+              `商品ID: ${productId}, 修正後のファイル名: ${correctedFileName}`
+            );
+          }
+
+          // 環境に応じたパスを生成
+          const isProduction = true; // 開発環境の場合はfalse、本番環境の場合はtrue
+
+          if (isProduction) {
+            // 本番環境用のURLを生成
+            imagePath = `https://image.rakuten.co.jp/mogustore/cabinet/splp/11558925/11558926/${correctedFileName}`;
+          } else {
+            // 開発環境用のパスを生成（元のパスの/imgの前に.を追加）
+            const sectionPath = imagePath.substring(
+              0,
+              imagePath.lastIndexOf("/")
+            );
+            imagePath = `.${sectionPath}/${correctedFileName}`;
+          }
+
+          console.log(`商品ID: ${productId}, 最終画像パス: ${imagePath}`);
+        }
+
+        // 価格表示の処理
+        let priceDisplay = "";
+
+        // 価格範囲がある場合（isPriceRangeがtrueの場合）
+        if (product.isPriceRange) {
+          priceDisplay = `
+            <span class="price-range">￥${product.minPrice.toLocaleString()}～${product.maxPrice.toLocaleString()}(税込)</span>
+          `;
+        } else if (product.originalPrice === product.currentPrice) {
+          // 割引なしの場合
+          priceDisplay = `
+            <span class="price-current">￥${product.currentPrice.toLocaleString()}(税込)</span>
+          `;
+        } else {
+          // 割引ありの場合
+          const discountRate =
+            product.discountRate ||
+            Math.floor(
+              (1 - product.currentPrice / product.originalPrice) * 100
+            );
+          priceDisplay = `
+            <span class="price-original">￥${product.originalPrice.toLocaleString()}(税込)</span>
+            <span class="discount-badge">${discountRate}%OFF</span>
+            <span class="price-current">￥${product.currentPrice.toLocaleString()}(税込)</span>
+          `;
+        }
+
+        card.innerHTML = `
+          <div class="product-link">
+            <a href="${product.link}">
+              <img
+                src="${imagePath}"
+                alt="${product.title}"
+                class="product-image"
+              />
+            </a>
+            <div class="product-info">
+              <h3 class="product-title">${product.title}</h3>
+              <div class="product-price">
+                ${priceDisplay}
+              </div>
+              <p class="product-description">${product.description || ""}</p>
+            </div>
+          </div>
+          <a href="${product.link}" class="product-button">商品ページ</a>
+        `;
+
+        return card;
+      }
+
+      // 各セクションに商品を表示する
+      function displayProducts(productData) {
+        // セクションごとに商品を表示
+        const sections = {
+          pockiri: productData.pockiri || [],
+          popular: productData.popular || [],
+          new: productData.new || [],
+          bargain: productData.bargain || [],
+          gw_travel: productData.gw_travel || [],
+          mothers_day: productData.mothers_day || [],
+          other: productData.other || [],
+        };
+
+        Object.keys(sections).forEach((sectionKey) => {
+          const sectionProducts = sections[sectionKey];
+          const container = document.getElementById(`${sectionKey}-products`);
+
+          if (container && sectionProducts.length > 0) {
+            sectionProducts.forEach((product) => {
+              const card = createProductCard(product);
+              container.appendChild(card);
+            });
+          } else if (container && sectionProducts.length === 0) {
+            container.innerHTML =
+              '<p class="no-products">現在、このカテゴリーの商品はありません。</p>';
+          }
+        });
+      }
+
+      // カウントダウン機能
+      function updateCountdown() {
+        const now = new Date();
+        const startDate = new Date("2025-03-21T00:00:00+09:00"); // セール開始日時
+        const endDate = new Date("2025-03-27T01:59:59+09:00"); // セール終了日時
+
+        // セール終了後
+        if (now > endDate) {
+          document.querySelector(".calendar-countdown").innerHTML =
+            '<p class="campaign-ended">キャンペーン終了</p>';
+          return;
+        }
+
+        // セール開始前
+        if (now < startDate) {
+          const diff = startDate - now;
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const hours = Math.floor(
+            (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
+          const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+          // タイトルを「セール開始まで残り」に変更
+          document.querySelector(".calendar-title").textContent =
+            "開始まで残り";
+
+          document.getElementById("countdown-days").textContent = String(
+            days
+          ).padStart(2, "0");
+          document.getElementById("countdown-hours").textContent = String(
+            hours
+          ).padStart(2, "0");
+          document.getElementById("countdown-minutes").textContent = String(
+            minutes
+          ).padStart(2, "0");
+          document.getElementById("countdown-seconds").textContent = String(
+            seconds
+          ).padStart(2, "0");
+          return;
+        }
+
+        // セール中
+        const diff = endDate - now;
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        // タイトルを「セール終了まで残り」に変更
+        document.querySelector(".calendar-title").textContent = "終了まで残り";
+
+        document.getElementById("countdown-days").textContent = String(
+          days
+        ).padStart(2, "0");
+        document.getElementById("countdown-hours").textContent = String(
+          hours
+        ).padStart(2, "0");
+        document.getElementById("countdown-minutes").textContent = String(
+          minutes
+        ).padStart(2, "0");
+        document.getElementById("countdown-seconds").textContent = String(
+          seconds
+        ).padStart(2, "0");
+      }
+
+      // カテゴリーセクションの固定表示制御
+      function setupCategorySticky() {
+        const categorySection = document.querySelector(".category-section");
+        if (!categorySection) return;
+
+        const originalOffset = categorySection.offsetTop;
+        let isTransitioning = false;
+        let lastScrollPosition = window.pageYOffset;
+
+        window.addEventListener("scroll", () => {
+          const scrollPosition = window.pageYOffset;
+          const triggerPoint = originalOffset - window.innerHeight * 0.05;
+          const transitionDistance = window.innerHeight * 0.3;
+
+          const progress = Math.min(
+            1,
+            Math.max(0, (scrollPosition - triggerPoint) / transitionDistance)
+          );
+
+          const isScrollingDown = scrollPosition > lastScrollPosition;
+          lastScrollPosition = scrollPosition;
+
+          if (scrollPosition > triggerPoint) {
+            if (progress > 0 && progress < 1) {
+              categorySection.classList.add("transitioning");
+            } else {
+              categorySection.classList.remove("transitioning");
+            }
+
+            if (progress >= 0.8 && !isTransitioning) {
+              categorySection.classList.add("sticky");
+              isTransitioning = true;
+            } else if (progress < 0.2 && isTransitioning) {
+              categorySection.classList.remove("sticky");
+              isTransitioning = false;
+            }
+          } else {
+            categorySection.classList.remove("sticky", "transitioning");
+            isTransitioning = false;
+          }
+        });
+      }
+
+      // スクロール方向に応じたナビゲーション表示/非表示
+      function setupScrollDirection() {
+        const body = document.body;
+        let lastScrollTop = 0;
+        const scrollThreshold = 5; // スクロールを検知する最小ピクセル数
+
+        window.addEventListener(
+          "scroll",
+          () => {
+            const st = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (Math.abs(lastScrollTop - st) <= scrollThreshold) return;
+
+            if (st > lastScrollTop && st > 100) {
+              // 下にスクロール
+              body.classList.add("scroll-down");
+              body.classList.remove("scroll-up");
+            } else if (st < lastScrollTop) {
+              // 上にスクロール
+              body.classList.add("scroll-up");
+              body.classList.remove("scroll-down");
+            }
+
+            lastScrollTop = st <= 0 ? 0 : st;
+          },
+          { passive: true }
+        );
+      }
+
+      // タッチデバイス検出
+      function setupTouchDevice() {
+        if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
+          document.body.classList.add("touch-device");
+        }
+      }
+
+      // ページ読み込み時の処理
+      document.addEventListener("DOMContentLoaded", async () => {
+        // 商品データを読み込んで表示
+        const productData = await loadProductData();
+        if (productData) {
+          displayProducts(productData);
+        }
+
+        // カウントダウン初期化と定期更新
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // カテゴリーセクションの固定表示設定
+        setupCategorySticky();
+
+        // スクロール方向の検出
+        setupScrollDirection();
+
+        // タッチデバイス検出
+        setupTouchDevice();
+      });
+    </script>
+  </body>
+</html>

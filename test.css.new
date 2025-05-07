@@ -1,0 +1,410 @@
+/* =========================
+   768px以下 レスポンシブ
+   ========================= */
+@media (max-width: 768px) {
+  /* クーポン関連 */
+  .coupon-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .coupon-section {
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+  }
+  .coupon-logo {
+    max-width: 250px;
+    margin-bottom: 1rem;
+  }
+  .coupon-message {
+    flex: 0 0 100%;
+    margin-bottom: 1rem;
+    min-width: auto;
+  }
+  .coupon-content {
+    flex: 0 0 100%;
+  }
+  .product-card--coupon {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0 0.5rem;
+  }
+  .product-card--coupon .discount-badge,
+  .product-card--coupon .price-current {
+    font-size: 1.8rem !important;
+  }
+
+  /* カテゴリー関連 */
+  .category-wrapper {
+    padding: 1rem;
+  }
+  .category-section.sticky {
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(203, 7, 8, 0.15);
+    border-bottom: none;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .category-section.sticky .category-buttons,
+  .category-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    padding: 0 0.5rem;
+  }
+  .category-section.sticky .category-row,
+  .category-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    width: 100%;
+    padding-bottom: 5px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .category-row::-webkit-scrollbar {
+    display: none;
+  }
+  .category-section.sticky .category-button,
+  .category-button {
+    width: 100%;
+    min-width: 0;
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+    line-height: 1.3;
+    white-space: normal;
+    flex: 1 1 auto;
+    background: linear-gradient(to right, #bf0000, #ff3333);
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    justify-content: space-between;
+    height: auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .category-section.sticky .category-icon,
+  .category-icon {
+    display: none;
+    width: 20px;
+    height: auto;
+  }
+  .category-section.sticky .category-text,
+  .category-text {
+    font-size: 0.9rem;
+    line-height: 1.3;
+    text-align: left;
+    padding: 0;
+    width: auto;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  .category-section.sticky .category-text br,
+  .category-text br {
+    display: none;
+  }
+  .category-button:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  /* 商品カード */
+  .product-grid {
+    gap: 2rem;
+  }
+  .product-card {
+    width: calc(100% - 2rem);
+    max-width: 519px;
+    padding-bottom: 90px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .product-card:active {
+    transform: scale(0.98);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  .product-link {
+    padding: 1rem 1rem 0;
+  }
+  .product-info {
+    padding: 1rem;
+  }
+  .product-title {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+  .price-original {
+    font-size: 1.3rem;
+  }
+  .price-current {
+    font-size: 2.5rem;
+  }
+  .discount-badge {
+    font-size: 1.8rem;
+    padding: 0.2rem 1.2rem;
+  }
+  .product-button {
+    bottom: 15px;
+    height: 56px;
+    width: 200px;
+  }
+  .product-price .price-range {
+    font-size: 2rem !important;
+  }
+  .price-1000 .product-title {
+    font-size: 1.25rem;
+  }
+  .price-1000 .price-current {
+    font-size: 2rem;
+  }
+  .price-1000 .product-description {
+    font-size: 0.9rem;
+  }
+
+  /* カレンダー・カウントダウン */
+  .calendar-countdown {
+    margin: 1.5rem auto;
+    padding: 0.5rem;
+  }
+  .calendar-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  .calendar-container {
+    gap: 0.3rem;
+    justify-content: center;
+  }
+  .calendar-page {
+    width: 60px;
+    height: 70px;
+    margin: 0 0.2rem;
+    position: relative;
+  }
+  .calendar-page:before {
+    height: 20px;
+    top: 0;
+    border-radius: 5px 5px 0 0;
+  }
+  .calendar-number {
+    font-size: 2.2rem;
+    margin-top: 20px;
+  }
+  .calendar-unit {
+    font-size: 0.8rem;
+    margin-top: 0;
+  }
+
+  /* フッター */
+  .site-footer {
+    margin-bottom: 180px;
+    padding: 2.5rem 0 0;
+  }
+  .footer-content {
+    gap: 1.875rem;
+  }
+  .footer-logo-button-wrapper {
+    gap: 1.25rem;
+  }
+  .mogu-logo {
+    height: 6rem;
+  }
+  .search-box {
+    flex-direction: column;
+  }
+  .search-button {
+    width: 100%;
+  }
+  .footer-links {
+    width: 100%;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .footer-top-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    margin: 0;
+  }
+  .social-links {
+    gap: 1rem;
+  }
+  .social-icon {
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 1rem;
+  }
+
+  /* その他 */
+  .pockiri-section,
+  .popular-section,
+  .new-section,
+  .bargain-section {
+    padding: 1.5rem 0;
+    border-radius: 8px;
+  }
+  .to-top {
+    right: 15px;
+    bottom: 85px;
+    width: 40px;
+    height: 40px;
+  }
+  .to-top .arrow {
+    font-size: 20px;
+    line-height: 0.8;
+    transform: translateY(-2px);
+  }
+  .gift-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 0 0.5rem;
+  }
+  .mothersday-banner-section {
+    padding: 2rem 1rem;
+  }
+  .mothersday-banner {
+    flex-direction: column;
+    padding: 0;
+  }
+  .mothersday-catch {
+    padding-right: 0;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  .mothersday-catch-img {
+    width: 100%;
+    max-width: 520px;
+  }
+  .mothersday-product {
+    width: 100%;
+    margin-right: 0;
+    align-items: center;
+  }
+  .mothersday-product-img {
+    width: 380px;
+    margin-bottom: 0;
+    margin-right: 0;
+  }
+  .mothersday-campaign {
+    text-align: center;
+  }
+  .period-date-box {
+    padding: 1.8rem 0.8rem 1.2rem;
+    font-size: 1.4rem;
+    flex-wrap: wrap;
+  }
+  .period-date-box .date {
+    font-size: 1.8rem;
+  }
+  .period-date-box .time {
+    font-size: 1.6rem;
+  }
+  .period-date-box .day-label {
+    width: 1.6rem;
+    height: 1.6rem;
+    font-size: 0.9rem;
+  }
+  .period-date-box .notice {
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+  }
+}
+
+/* =========================
+   480px以下 レスポンシブ
+   ========================= */
+@media (max-width: 480px) {
+  .product-title {
+    font-size: 1rem;
+  }
+  .price-original {
+    font-size: 0.9rem;
+  }
+  .price-current {
+    font-size: 2rem;
+  }
+  .discount-badge {
+    font-size: 1.6rem;
+  }
+  .product-button {
+    height: 50px;
+    width: 180px;
+  }
+  .calendar-countdown {
+    margin: 1rem auto;
+    padding: 0.3rem;
+  }
+  .calendar-title {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+  .calendar-container {
+    gap: 0.2rem;
+  }
+  .calendar-page {
+    width: 50px;
+    height: 60px;
+    margin: 0 0.1rem;
+  }
+  .calendar-page:before {
+    height: 15px;
+  }
+  .calendar-number {
+    font-size: 1.8rem;
+    margin-top: 15px;
+  }
+  .calendar-unit {
+    font-size: 0.7rem;
+  }
+  .footer-top-button {
+    padding: 0.625rem 1.25rem;
+    border-radius: 1.5rem;
+  }
+  .footer-nav {
+    padding: 1.5rem 0;
+    gap: 1.5rem;
+  }
+  .mogu-logo {
+    height: 5rem;
+  }
+  .footer-links {
+    gap: 1.5rem;
+  }
+  .social-links {
+    gap: 0.8rem;
+  }
+  .social-icon {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.9rem;
+  }
+  .category-button {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  .category-text {
+    font-size: 0.85rem;
+  }
+  .category-text br {
+    display: inline;
+  }
+  .category-section.sticky .category-button {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+  .category-section.sticky .category-text br {
+    display: inline;
+  }
+  .product-card--coupon {
+    width: 100%;
+  }
+}

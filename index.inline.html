@@ -1,0 +1,3078 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="楽天市場MOGUストアのお買い物マラソン特集ページです。送料無料・1000円ポッキリ商品、人気アイテム、新商品、お買い得品を多数ご用意しています。"
+    />
+    <title>楽天 お買い物マラソン - MOGUストア</title>
+    <link rel="preconnect" href="https://www.rakuten.ne.jp" />
+    <link rel="preconnect" href="https://www.rakuten.co.jp" />
+    <link rel="preconnect" href="https://image.rakuten.co.jp" />
+    <link rel="dns-prefetch" href="https://www.rakuten.ne.jp" />
+    <link rel="dns-prefetch" href="https://www.rakuten.co.jp" />
+    <link rel="dns-prefetch" href="https://image.rakuten.co.jp" />
+
+    <style>
+      *,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .container,
+      body {
+        overflow-x: hidden;
+      }
+      *,
+      body {
+        padding: 0;
+      }
+      .touch-device,
+      html {
+        scroll-behavior: smooth;
+      }
+      :root {
+        --primary-color: #bf0000;
+        --secondary-color: #ff6b6b;
+        --text-color: #333;
+        --background-color: #fff;
+        --border-color: #ddd;
+        --shadow-color: rgba(0, 0, 0, 0.1);
+        --animation-duration: 0.3s;
+        --spacing-unit: 1rem;
+        --color-primary: #cb0708;
+        --color-secondary: #ffd400;
+        --color-black: #000000;
+        --color-white: #ffffff;
+        --color-gray: #666666;
+        --color-background: #c90908;
+        --color-kidnapper: #ffffff;
+        --color-section-1: #fff9f9;
+        --color-section-2: #f9f9ff;
+        --color-section-3: #fffbf6;
+        --color-section-4: #f6fff9;
+        --font-size-xs: 0.75rem;
+        --font-size-sm: 0.875rem;
+        --font-size-base: 1rem;
+        --font-size-lg: 1.125rem;
+        --font-size-xl: 1.25rem;
+        --font-size-2xl: 1.5rem;
+        --font-size-3xl: 1.875rem;
+        --line-height-tight: 1.2;
+        --line-height-normal: 1.5;
+        --line-height-relaxed: 1.75;
+        --letter-spacing-tight: -0.02em;
+        --letter-spacing-normal: 0;
+        --letter-spacing-wide: 0.05em;
+        --font-family-base: "Inter", "Helvetica Neue", Arial, sans-serif;
+        --font-family-heading: "Inter", "Helvetica Neue", Arial, sans-serif;
+        --spacing-base: 1rem;
+      }
+      body {
+        font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "メイリオ",
+          sans-serif;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        font-family: var(--font-family-base);
+        line-height: var(--line-height-normal);
+        color: var(--color-black);
+        background: var(--color-kidnapper);
+        font-size: var(--font-size-base);
+        letter-spacing: var(--letter-spacing-normal);
+      }
+      @media (prefers-reduced-motion: no-preference) {
+        .calendar-countdown,
+        .calendar-page {
+          will-change: transform;
+          transform: translateZ(0);
+        }
+        .calendar-countdown {
+          backface-visibility: hidden;
+        }
+        .calendar-page {
+          transition: transform var(--animation-duration)
+            cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .product-card {
+          content-visibility: auto;
+          contain: layout style paint;
+        }
+      }
+      .coupon-card,
+      .coupon-logo,
+      .product-image,
+      .sale-header-img {
+        aspect-ratio: attr(width) / attr(height);
+        contain: layout style paint;
+      }
+      .category-section.sticky {
+        transform: translateZ(0);
+        will-change: transform;
+        backface-visibility: hidden;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0s !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0s !important;
+          scroll-behavior: auto !important;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      .container {
+        width: 100%;
+      }
+      .sale-header {
+        width: 100%;
+        padding: 0;
+        background: linear-gradient(135deg, #fff 0, #f0f8ff 50%, #e6f3ff 100%);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+      .balloon-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 2;
+      }
+      .balloon {
+        position: absolute;
+        width: 30px;
+        height: 40px;
+        background: radial-gradient(
+          circle at 50% 30%,
+          currentColor 60%,
+          rgba(255, 255, 255, 0.8) 100%
+        );
+        border-radius: 50%/60% 60% 40% 40%;
+        animation: floatUp var(--float-duration) ease-in-out forwards;
+        opacity: 0;
+      }
+      .balloon::after {
+        content: "";
+        position: absolute;
+        width: 2px;
+        height: 12px;
+        background: rgba(0, 0, 0, 0.2);
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      @keyframes floatUp {
+        0% {
+          transform: translateY(120vh) rotate(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-20vh) rotate(var(--rotation));
+          opacity: 0;
+        }
+      }
+      .confetti-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+      }
+      .confetti {
+        position: absolute;
+        width: 8px;
+        height: 20px;
+        background: var(--confetti-color);
+        opacity: 0;
+        animation: confettiFall var(--fall-duration) ease-in-out forwards;
+      }
+      @keyframes confettiFall {
+        0% {
+          transform: translateY(-10px) rotate(0);
+          opacity: 1;
+        }
+        25% {
+          transform: translateY(25vh) rotate(45deg);
+          opacity: 1;
+        }
+        50% {
+          transform: translateY(50vh) rotate(90deg);
+          opacity: 0.8;
+        }
+        75% {
+          transform: translateY(75vh) rotate(135deg);
+          opacity: 0.6;
+        }
+        100% {
+          transform: translateY(100vh) rotate(180deg);
+          opacity: 0;
+        }
+      }
+      .sale-header-img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .category-wrapper {
+        padding: calc(2 * var(--spacing-base)) var(--spacing-base);
+        background-color: var(--color-kidnapper);
+      }
+      .coupon-section {
+        padding: 2rem 0;
+        background: linear-gradient(135deg, #c90908 0, #f33 100%);
+      }
+      .coupon-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+      }
+      .coupon-message {
+        flex: 0 0 30%;
+        min-width: 300px;
+        display: flex;
+        justify-content: center;
+      }
+      .coupon-content {
+        flex: 0 0 70%;
+        border-radius: 10px;
+        text-align: center;
+      }
+      .coupon-message img {
+        max-width: 400px;
+        width: 100%;
+        height: auto;
+      }
+      .original-price {
+        text-decoration: line-through;
+        color: #666;
+        margin-bottom: 0.5rem;
+      }
+      .current-price,
+      .discount-text {
+        color: #c90908;
+        font-weight: 700;
+      }
+      .discount-text {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+      .current-price {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+      }
+      .coupon-stamp {
+        width: 100px;
+        height: auto;
+      }
+      .coupon-product {
+        display: flex;
+        background-color: #fff9e0;
+        border-radius: 8px;
+        padding: 1.5rem;
+        width: 100%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .product-image-container {
+        flex: 1;
+        margin-right: 1.5rem;
+      }
+      .product-image {
+        height: auto;
+        object-fit: cover;
+      }
+      .product-color-options {
+        display: flex;
+        justify-content: center;
+        margin-top: 0.5rem;
+      }
+      .color-option {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        margin: 0 5px;
+        cursor: pointer;
+        border: 2px solid #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .color-option.red {
+        background-color: #e53935;
+      }
+      .color-option.lime {
+        background-color: #c0d725;
+      }
+      .color-option.blue {
+        background-color: #1e88e5;
+      }
+      .color-option.navy {
+        background-color: #1a237e;
+      }
+      .color-option.gray {
+        background-color: #757575;
+      }
+      .color-option.black {
+        background-color: #212121;
+      }
+      .product-info {
+        flex: 1;
+      }
+      .product-title {
+        font-size: 1.5rem;
+        color: #333;
+      }
+      .product-price-original {
+        font-size: 1.3rem;
+        color: #666;
+        text-decoration: line-through;
+        margin-bottom: 0.5rem;
+      }
+      .category-button,
+      .coupon-button {
+        text-decoration: none;
+        color: #fff;
+      }
+      .product-discount {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #c90908;
+        margin-bottom: 0.5rem;
+      }
+      .product-price-discounted {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #c90908;
+        margin-bottom: 1.5rem;
+      }
+      .coupon-button {
+        display: inline-block;
+        margin: auto auto 0;
+        background: linear-gradient(to bottom, #c90908, #a50000);
+        font-weight: 700;
+        font-size: 1.2rem;
+        padding: 1rem;
+        border-radius: 6px;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+      }
+      .coupon-button:hover {
+        background: linear-gradient(to bottom, #a50000, #c90908);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+          filter: drop-shadow(0 5px 15px rgba(203, 7, 8, 0.2));
+        }
+        50% {
+          transform: translateY(-10px);
+          filter: drop-shadow(0 15px 20px rgba(203, 7, 8, 0.3));
+        }
+      }
+      @keyframes appear {
+        0% {
+          opacity: 0;
+          transform: translateY(20px) scale(0.95);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+      .coupon-logo-container::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 250px;
+        height: 100px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 212, 0, 0.3) 0,
+          rgba(255, 212, 0, 0) 70%
+        );
+        transform: translate(-50%, -50%);
+        z-index: 0;
+        animation: 3s ease-in-out infinite glow;
+      }
+      @keyframes glow {
+        0%,
+        100% {
+          opacity: 0.5;
+          transform: translate(-50%, -50%) scale(1);
+        }
+        50% {
+          opacity: 0.8;
+          transform: translate(-50%, -50%) scale(1.1);
+        }
+      }
+      .coupon-card {
+        display: block;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        transition: transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        background-color: #fff;
+        animation: 0.8s ease-out 0.5s backwards cardAppear;
+        position: relative;
+      }
+      @keyframes cardAppear {
+        0% {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .coupon-card:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 15px 30px rgba(203, 7, 8, 0.15);
+      }
+      .coupon-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 0) 0,
+          rgba(255, 255, 255, 0.3) 50%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        transform: skewX(-25deg);
+        animation: 3s 1s infinite shine;
+        z-index: 1;
+      }
+      .campaign-section {
+        margin-bottom: 2rem;
+      }
+      .campaign-info {
+        margin-top: 0;
+        padding: 1.5rem;
+        background: linear-gradient(135deg, #fff 0, #fff8e1 100%);
+        border-radius: 12px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+      .category-section {
+        padding: 0;
+        background-color: transparent;
+        text-align: center;
+        transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        transform-origin: top;
+        will-change: transform, opacity, padding;
+      }
+      .category-section.sticky {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        padding: 0.5rem;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-top: 1px solid rgba(203, 7, 8, 0.15);
+        border-bottom: none;
+        box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, opacity 0.3s;
+      }
+      .category-section .campaign-info,
+      .category-section .category-button,
+      .category-section .category-buttons,
+      .category-section .category-icon,
+      .category-section .category-text,
+      .category-section.sticky .campaign-info {
+        transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .category-section.sticky .campaign-info {
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+      }
+      .category-section .campaign-info {
+        opacity: 1;
+        max-height: 1000px;
+        transform-origin: top;
+      }
+      .category-section.transitioning {
+        transform: scale(0.98);
+        opacity: 0.95;
+      }
+      .category-buttons {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1rem;
+        padding: 1rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .campaign-title,
+      .period-date {
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+      }
+      .category-row {
+        display: contents;
+      }
+      .category-button {
+        background: linear-gradient(to right, #bf0000, #f33);
+        border-radius: 10px;
+        padding: 1rem;
+        font-weight: 700;
+        transition: 0.3s;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+        min-height: 4rem;
+        width: 100%;
+      }
+      .category-text {
+        color: var(--color-white);
+        font-weight: 700;
+        font-size: 0.95rem;
+        line-height: 1.4;
+        text-align: left;
+        z-index: 1;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        letter-spacing: -0.02em;
+        flex: 1;
+        min-width: 0;
+        white-space: pre-line;
+        word-break: keep-all;
+      }
+      .campaign-ended,
+      .campaign-period,
+      .campaign-title,
+      .copyright,
+      .product-info,
+      .section-title {
+        text-align: center;
+      }
+      .category-icon {
+        width: 1.25rem;
+        height: 1.25rem;
+        object-fit: contain;
+        z-index: 1;
+        flex-shrink: 0;
+      }
+      .category-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        background: linear-gradient(to right, #f33, #bf0000);
+      }
+      .campaign-title {
+        font-size: 1.5rem;
+        color: #cb0708;
+        line-height: 1.6;
+      }
+      .campaign-period {
+        position: relative;
+        background: #fff;
+        border-radius: 8px;
+        padding: 2rem 1.5rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border: 2px solid #28b6cf;
+        margin-top: 2rem;
+      }
+      .campaign-period::before {
+        content: "楽天市場マラソン期間";
+        position: absolute;
+        top: -1.2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #28b6cf;
+        color: #fff;
+        padding: 0.5em 2em;
+        font-size: 1.1rem;
+        font-weight: 700;
+        border-radius: 100px;
+        white-space: nowrap;
+        box-shadow: 0 4px 15px rgba(40, 182, 207, 0.3);
+      }
+      .period-date {
+        font-size: 1.8rem;
+        color: #333;
+        line-height: 1.4;
+      }
+      .countdown {
+        margin-top: 1rem;
+      }
+      .countdown-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #28b6cf;
+        margin-bottom: 1rem;
+      }
+      .countdown-wrap {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 0.5rem;
+      }
+      .countdown-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #f0f8ff;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        min-width: 80px;
+      }
+      .countdown-item span:first-child {
+        font-size: 2rem;
+        font-weight: 800;
+        color: #28b6cf;
+        line-height: 1.2;
+      }
+      .countdown-label {
+        font-size: 0.9rem;
+        color: #666;
+        margin-top: 0.2rem;
+      }
+      @media (max-width: 768px) {
+        .coupon-container {
+          flex-direction: column;
+          padding: 1rem;
+        }
+        .coupon-message {
+          flex: 0 0 100%;
+          margin-bottom: 1rem;
+          min-width: auto;
+        }
+        .coupon-content {
+          flex: 0 0 100%;
+        }
+        .coupon-message,
+        .product-info {
+          text-align: center;
+        }
+        .coupon-product {
+          flex-direction: column;
+        }
+        .product-image-container {
+          margin-right: 0;
+          margin-bottom: 1.5rem;
+        }
+        .coupon-container {
+          flex-direction: column;
+          gap: 1.5rem;
+        }
+        .coupon-logo {
+          max-width: 250px;
+          margin-bottom: 1rem;
+        }
+        .category-buttons {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 0.5rem;
+          gap: 0.7rem;
+        }
+        .category-section.sticky::after,
+        .category-text br {
+          display: none;
+        }
+        .category-button,
+        .category-section.sticky .category-button {
+          white-space: normal;
+          background: linear-gradient(to right, #bf0000, #f33);
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+          width: 100%;
+          display: flex;
+        }
+        .campaign-title,
+        .category-text {
+          word-break: keep-all;
+          overflow-wrap: break-word;
+          line-height: 1.4;
+        }
+        .campaign-info,
+        .category-wrapper {
+          padding: 1rem;
+        }
+        .campaign-section {
+          margin-bottom: 1.5rem;
+        }
+        .campaign-title {
+          font-size: 1.1rem;
+          padding: 0 0.5rem;
+        }
+        .campaign-period {
+          padding: 1.2rem 1rem;
+          margin-top: 1.8rem;
+          word-break: keep-all;
+          overflow-wrap: break-word;
+        }
+        .category-section.sticky {
+          position: fixed;
+          bottom: 0;
+          top: auto;
+          left: 0;
+          right: 0;
+          z-index: 100;
+          padding: 0.5rem;
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+          border-top: 1px solid rgba(203, 7, 8, 0.15);
+          border-bottom: none;
+          box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s, opacity 0.3s;
+        }
+        .category-section.sticky .category-buttons {
+          display: flex;
+          flex-direction: column;
+          gap: 0.7rem;
+          padding: 0 0.5rem;
+        }
+        .category-section.sticky .category-row {
+          display: flex;
+          flex-direction: column;
+          gap: 0.7rem;
+          width: 100%;
+        }
+        .category-section.sticky .category-button {
+          min-width: 0;
+          padding: 0.6rem;
+          font-size: 0.9rem;
+          line-height: 1.3;
+          flex: 1 1 auto;
+          border-radius: 8px;
+          justify-content: space-between;
+          height: auto;
+          align-items: center;
+        }
+        .category-section.sticky .category-text {
+          font-size: 0.9rem;
+          line-height: 1.3;
+          text-align: left;
+          padding: 0;
+          width: auto;
+          word-break: keep-all;
+          overflow-wrap: break-word;
+        }
+        .category-section.sticky .category-icon {
+          display: none;
+          width: 20px;
+          height: auto;
+        }
+        .site-footer {
+          margin-bottom: 180px;
+        }
+        .category-row {
+          gap: 0.7rem;
+          padding: 0 0.5rem 5px;
+          overflow-x: auto;
+          justify-content: flex-start;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+        .category-row::-webkit-scrollbar {
+          display: none;
+        }
+        .category-button {
+          padding: 0.6rem 1rem;
+          font-size: 0.9rem;
+          min-width: auto;
+          flex: 0 0 auto;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .category-button:active {
+          transform: translateY(0) scale(0.98);
+        }
+        .category-text {
+          white-space: normal;
+          font-size: 0.9rem;
+        }
+      }
+      .product-card,
+      .section-title {
+        overflow: hidden;
+        position: relative;
+      }
+      @media (max-width: 380px) {
+        .gift-section .section-title,
+        .office-living-section .section-title,
+        .section-title,
+        .sleep-section .section-title,
+        .sofa-section .section-title {
+          font-size: 0.9rem !important;
+          line-height: 1.5 !important;
+          padding: 0.7rem !important;
+          letter-spacing: -0.02em !important;
+        }
+        .gift-section .section-description,
+        .office-living-section .section-description,
+        .section-description,
+        .sleep-section .section-description,
+        .sofa-section .section-description {
+          font-size: 0.8rem !important;
+          line-height: 1.5 !important;
+          padding: 0 0.5rem !important;
+        }
+        .campaign-title {
+          font-size: 0.9rem !important;
+          line-height: 1.5 !important;
+          padding: 0 0.5rem !important;
+          letter-spacing: -0.02em !important;
+        }
+      }
+      .product-title,
+      .section-title {
+        line-height: var(--line-height-tight);
+      }
+      section {
+        padding: 0;
+        background: var(--color-kidnapper);
+        margin-bottom: 60px;
+      }
+      .section-title {
+        color: var(--color-white);
+        font-size: var(--font-size-2xl);
+        font-weight: 700;
+        margin: 3rem 0 2rem;
+        background: linear-gradient(to right, #bf0000, #f33);
+        padding: 1.2rem 0;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        letter-spacing: var(--letter-spacing-wide);
+      }
+      .section-title::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(to right, #fc0, gold);
+      }
+      .product-link::before,
+      .section-title::after {
+        height: 100%;
+        content: "";
+        position: absolute;
+        top: 0;
+      }
+      .section-title::after {
+        left: 0;
+        width: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+        z-index: 0;
+      }
+      .bargain-section > *,
+      .gw-travel-section > *,
+      .new-section > *,
+      .pockiri-section > *,
+      .popular-section > *,
+      .section-title span {
+        position: relative;
+        z-index: 1;
+      }
+      .section-divider {
+        width: 660px;
+        height: 37px;
+        margin: 0 auto 2rem;
+        display: none;
+      }
+      .product-grid {
+        contain: content;
+        content-visibility: auto;
+        display: flex;
+        justify-content: center;
+        gap: 89px;
+        padding: 1rem;
+        flex-wrap: wrap;
+      }
+      .product-card {
+        background: #fff5f7;
+        border-radius: 20px;
+        width: 519px;
+        padding-bottom: 100px;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      }
+      .product-link {
+        display: block;
+        padding: 2rem 2rem 0;
+        position: relative;
+        z-index: 1;
+      }
+      .product-image {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: contain;
+        background: var(--color-white);
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.5s, filter 0.5s;
+      }
+      .product-card:hover .product-image {
+        transform: scale(1.03);
+        filter: brightness(1.05);
+      }
+      .product-link::before {
+        left: -100%;
+        width: 50%;
+        background: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 0) 0,
+          rgba(255, 255, 255, 0.3) 50%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        transform: skewX(-25deg);
+        z-index: 2;
+        animation: 5s infinite imageShine;
+        pointer-events: none;
+      }
+      @keyframes imageShine {
+        0% {
+          left: -100%;
+          opacity: 0;
+        }
+        15% {
+          opacity: 0.3;
+        }
+        100%,
+        35% {
+          left: 150%;
+          opacity: 0;
+        }
+      }
+      .product-info {
+        padding: 2rem;
+        position: relative;
+        z-index: 1;
+      }
+      .product-title {
+        font-size: var(--font-size-lg);
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        letter-spacing: var(--letter-spacing-tight);
+        word-break: keep-all;
+        overflow-wrap: break-word;
+        display: inline-block;
+        max-width: 100%;
+      }
+      .product-price {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+        position: relative;
+        margin: 1rem 0;
+      }
+      .price-original {
+        color: #444;
+        text-decoration: line-through;
+        font-size: 1.5rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+      .discount-badge {
+        color: #fff;
+        font-size: 2.2rem;
+        background: #e60012;
+        margin: 0.5rem 0;
+        letter-spacing: 0.05em;
+        position: relative;
+      }
+      .price-current {
+        color: #e60012;
+        font-weight: 800;
+        font-size: 3.2rem;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        position: relative;
+        display: inline-block;
+        padding: 0 0.5rem;
+      }
+      .price-current::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: rgba(230, 0, 18, 0.15);
+      }
+      .price-range {
+        font-size: 2.2rem;
+        line-height: 1.4;
+        white-space: nowrap;
+      }
+      @media (max-width: 768px) {
+        .price-original {
+          font-size: 1.3rem;
+        }
+        .discount-badge {
+          font-size: 1.8rem;
+          padding: 0.2rem 1.2rem;
+        }
+        .price-current {
+          font-size: 3rem;
+        }
+        .price-range {
+          font-size: 2.4rem;
+          font-weight: 800;
+          white-space: nowrap;
+        }
+      }
+      @media (max-width: 480px) {
+        .category-buttons {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .price-original {
+          font-size: var(--font-size-xs);
+        }
+        .discount-badge {
+          font-size: 1.6rem;
+        }
+        .price-current,
+        .price-range {
+          font-size: 2.2rem;
+        }
+        .price-range {
+          white-space: nowrap;
+        }
+      }
+      .discount-badge::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        animation: 2s infinite shine;
+      }
+      .discount-badge::after,
+      .product-button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+      }
+      .discount-badge::after {
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+          circle at 50% 50%,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+      }
+      @keyframes shine {
+        100%,
+        20% {
+          left: 150%;
+        }
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+      .product-button {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 216px;
+        height: 64px;
+        background: url(https://www.rakuten.ne.jp/gold/mogustore/sales/rakuten_marathon/202504/statics/button.png)
+          center/contain no-repeat;
+        display: block;
+        font-size: 0;
+        text-indent: -9999px;
+        overflow: hidden;
+        transition: 0.3s;
+      }
+      .product-button:hover {
+        transform: translateX(-50%) scale(1.05);
+        filter: brightness(1.1);
+      }
+      .product-button:active {
+        transform: translateX(-50%) scale(0.98);
+        filter: brightness(0.95);
+      }
+      @keyframes buttonShine {
+        0% {
+          background-position: -100% 0;
+        }
+        100% {
+          background-position: 200% 0;
+        }
+      }
+      .product-button::before {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0) 0,
+          rgba(255, 255, 255, 0.4) 50%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        background-size: 200% 100%;
+        animation: 2s infinite buttonShine;
+      }
+      @media (max-width: 1200px) {
+        .product-grid {
+          gap: 2rem;
+        }
+        .product-card {
+          width: calc(100% - 2rem);
+          max-width: 519px;
+        }
+      }
+      @media (max-width: 768px) {
+        .product-title,
+        .section-title {
+          line-height: var(--line-height-tight);
+        }
+        .section-title {
+          font-size: var(--font-size-xl);
+          padding: 1rem 0.5rem;
+          margin: 2rem 0 1.5rem;
+        }
+        .section-title::before {
+          height: 3px;
+        }
+        .section-title::after {
+          bottom: -15px;
+          height: 15px;
+        }
+        .product-card {
+          padding-bottom: 90px;
+          transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .product-card:active {
+          transform: scale(0.98);
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .product-link {
+          padding: 1rem 1rem 0;
+        }
+        .product-info {
+          padding: 1rem;
+        }
+        .product-title {
+          font-size: var(--font-size-base);
+          margin-bottom: 1rem;
+        }
+        .price-current {
+          font-size: var(--font-size-2xl);
+        }
+        .discount-badge {
+          font-size: var(--font-size-lg);
+          padding: 0.2rem 0.5rem;
+          margin: 0.5rem 0;
+          display: inline-block;
+          border-radius: 4px;
+        }
+        .product-button {
+          bottom: 15px;
+          height: 56px;
+          width: 200px;
+        }
+      }
+      .bargain-section::before,
+      .new-section::before,
+      .pockiri-section::before,
+      .popular-section::before {
+        top: -50%;
+        left: -50%;
+        right: -50%;
+        bottom: -50%;
+        content: "";
+        position: absolute;
+        z-index: 0;
+      }
+      @media (max-width: 480px) {
+        .product-title {
+          font-size: var(--font-size-sm);
+        }
+        .price-original {
+          font-size: var(--font-size-xs);
+        }
+        .price-current {
+          font-size: var(--font-size-xl);
+        }
+        .discount-badge {
+          font-size: var(--font-size-base);
+        }
+        .product-button {
+          height: 50px;
+          width: 180px;
+        }
+        .calendar-countdown {
+          padding: 15px 10px;
+        }
+        .calendar-container {
+          gap: 8px;
+        }
+        .calendar-page {
+          width: 60px;
+          height: 70px;
+        }
+        .social-icon {
+          width: 2.2rem;
+          height: 2.2rem;
+          cursor: default;
+        }
+      }
+      .search-button,
+      .search-input {
+        font-size: 1rem;
+        transition: 0.3s;
+      }
+      .bargain-section,
+      .new-section,
+      .pockiri-section,
+      .popular-section {
+        padding: 2rem 0;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        overflow: hidden;
+        position: relative;
+      }
+      .pockiri-section {
+        background: linear-gradient(
+          135deg,
+          var(--color-section-1) 0,
+          #fff 100%
+        );
+      }
+      .pockiri-section::before {
+        background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f8d7da' fill-opacity='0.3'%3E%3Cpath d='M20 20c20-20 40-20 60 0s20 40 0 60s-40 20-60 0s-20-40 0-60zm12 12c-12 12-12 24 0 36s24 12 36 0s12-24 0-36s-24-12-36 0z'/%3E%3C/g%3E%3C/svg%3E");
+        animation: 180s linear infinite alternate floatingBackground;
+      }
+      .popular-section {
+        background: linear-gradient(to right, var(--color-section-2), #fff);
+      }
+      .popular-section::before {
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d0d1ff' fill-opacity='0.3'%3E%3Cpath d='M30 0L0 30h60L30 0zm0 60L0 30h60L30 60z'/%3E%3C/g%3E%3C/svg%3E");
+        animation: 200s linear infinite alternate-reverse floatingBackground;
+      }
+      .new-section {
+        background: radial-gradient(
+          circle at top right,
+          var(--color-section-3),
+          #fff 70%
+        );
+      }
+      .new-section::before {
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffbd70' fill-opacity='0.3'%3E%3Cpath d='M50 0l39.39 39.39L100 50l-10.61 10.61L50 100 10.61 60.61 0 50l10.61-10.61L50 0zm0 20L20 50l30 30 30-30-30-30z'/%3E%3C/g%3E%3C/svg%3E");
+        animation: 220s linear infinite alternate floatingBackground;
+      }
+      .bargain-section {
+        background: linear-gradient(
+          135deg,
+          #fff 0,
+          var(--color-section-4) 100%
+        );
+      }
+      .bargain-section::before {
+        background-image: url("data:image/svg+xml,%3Csvg width='70' height='70' viewBox='0 0 70 70' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23a3e0c5' fill-opacity='0.3'%3E%3Cpath d='M35 0L0 35l35 35 35-35L35 0zm0 20l15 15-15 15-15-15 15-15z'/%3E%3C/g%3E%3C/svg%3E");
+        animation: 240s linear infinite alternate-reverse floatingBackground;
+      }
+      .site-footer {
+        background: linear-gradient(135deg, #fff 0, #fff 85%, #f8f8f8 100%);
+        padding: 3.75rem 0 0;
+        border-top: 0.0625rem solid #eee;
+        position: relative;
+        overflow: hidden;
+      }
+      .site-footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23cb0708' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.5;
+        z-index: 0;
+      }
+      .footer-links a::after,
+      .footer-nav::after {
+        height: 1px;
+        bottom: 0;
+        content: "";
+        position: absolute;
+      }
+      .footer-content {
+        max-width: 75rem;
+        margin: 0 auto;
+        padding: 0 1.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        position: relative;
+        z-index: 1;
+      }
+      .footer-search {
+        width: 100%;
+        max-width: 50rem;
+        margin: 0 auto;
+        position: relative;
+      }
+      .search-box {
+        display: flex;
+        gap: 1rem;
+        width: 100%;
+      }
+      .search-input {
+        flex: 1;
+        padding: 1rem 1.25rem;
+        border: 0.0625rem solid #ddd;
+        border-radius: 0.25rem;
+        width: 100%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+      .search-input:focus {
+        border-color: var(--color-primary);
+        box-shadow: 0 4px 15px rgba(203, 7, 8, 0.15);
+        outline: 0;
+      }
+      .search-button {
+        padding: 1rem 3rem;
+        background: linear-gradient(to right, #28b6cf, #1a9bb3);
+        color: #fff;
+        border: none;
+        border-radius: 0.25rem;
+        font-weight: 700;
+        cursor: pointer;
+        white-space: nowrap;
+        box-shadow: 0 4px 10px rgba(40, 182, 207, 0.2);
+      }
+      .search-button:hover {
+        background: linear-gradient(to right, #1a9bb3, #0d8da5);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(40, 182, 207, 0.3);
+      }
+      .footer-logo-button-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1.25rem 0;
+      }
+      .footer-logo {
+        margin: 0;
+        position: relative;
+      }
+      .mogu-logo {
+        height: 7.5rem;
+        width: auto;
+        filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+        transition: 0.3s;
+      }
+      .mogu-logo:hover {
+        filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.15));
+        transform: translateY(-3px);
+      }
+      .footer-top-button {
+        display: inline-block;
+        padding: 0.75rem 2.5rem;
+        background: linear-gradient(to right, #ffb366, #f93);
+        color: #444;
+        text-decoration: none;
+        border-radius: 2rem;
+        font-weight: 700;
+        transition: 0.3s;
+        margin: 0;
+        box-shadow: 0 4px 10px rgba(255, 179, 102, 0.3);
+      }
+      .footer-links a,
+      .social-icon {
+        color: #666;
+        transition: 0.3s;
+        text-decoration: none;
+      }
+      .footer-top-button:hover {
+        background: linear-gradient(to right, #ffd5a1, #ffb366);
+        transform: translateY(-0.1875rem);
+        box-shadow: 0 6px 15px rgba(255, 179, 102, 0.4);
+      }
+      .footer-top-button:active {
+        transform: translateY(-0.0625rem);
+        box-shadow: 0 3px 8px rgba(255, 179, 102, 0.3);
+      }
+      .footer-nav {
+        width: 100%;
+        padding: 2rem 0;
+        border-top: 0.0625rem solid #eee;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        position: relative;
+      }
+      .footer-nav::after {
+        left: 10%;
+        width: 80%;
+        background: linear-gradient(
+          to right,
+          rgba(203, 7, 8, 0),
+          rgba(203, 7, 8, 0.1),
+          rgba(203, 7, 8, 0)
+        );
+      }
+      .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+      }
+      .footer-links a {
+        font-size: 0.875rem;
+        position: relative;
+        padding: 0.3rem 0;
+      }
+      .footer-links a:hover {
+        color: var(--color-primary);
+      }
+      .footer-links a::after {
+        width: 100%;
+        transform: scaleX(0);
+        left: 0;
+        background-color: var(--color-primary);
+        transform-origin: bottom right;
+        transition: transform 0.3s ease-out;
+      }
+      .footer-links a:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin: 1.5rem 0;
+      }
+      .social-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        background: #f5f5f5;
+        font-size: 1.2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+      .social-icon:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      }
+      .social-icon.twitter {
+        background: linear-gradient(135deg, #f5f5f5, #e1e8ed);
+        color: #1da1f2;
+      }
+      .social-icon.twitter:hover {
+        background: #1da1f2;
+        color: #fff;
+      }
+      .social-icon.facebook {
+        background: linear-gradient(135deg, #f5f5f5, #e6eaf4);
+        color: #4267b2;
+      }
+      .social-icon.facebook:hover {
+        background: #4267b2;
+        color: #fff;
+      }
+      .social-icon.instagram {
+        background: linear-gradient(135deg, #f5f5f5, #f3e5f5);
+        color: #c13584;
+      }
+      .social-icon.instagram:hover {
+        background: linear-gradient(
+          45deg,
+          #405de6,
+          #5851db,
+          #833ab4,
+          #c13584,
+          #e1306c,
+          #fd1d1d
+        );
+        color: #fff;
+      }
+      .social-icon.line {
+        background: linear-gradient(135deg, #f5f5f5, #e5f7e5);
+        color: #00b900;
+      }
+      .social-icon.line:hover {
+        background: #00b900;
+        color: #fff;
+      }
+      .copyright {
+        padding: 1.5rem 0;
+        color: #999;
+        font-size: 0.75rem;
+        margin-top: 1rem;
+      }
+      @media screen and (max-width: 768px) {
+        .site-footer {
+          padding: 2.5rem 0 0;
+        }
+        .footer-content {
+          gap: 1.875rem;
+        }
+        .footer-logo-button-wrapper {
+          gap: 1.25rem;
+        }
+        .mogu-logo {
+          height: 6rem;
+        }
+        .search-box {
+          flex-direction: column;
+        }
+        .search-button {
+          width: 100%;
+        }
+        .footer-links {
+          width: 100%;
+          justify-content: center;
+          gap: 2rem;
+          flex-wrap: wrap;
+        }
+        .footer-top-button {
+          padding: 0.75rem 1.5rem;
+          font-size: 0.875rem;
+          margin: 0;
+        }
+        .social-links {
+          gap: 1rem;
+        }
+        .social-icon {
+          width: 2.2rem;
+          height: 2.2rem;
+          font-size: 1rem;
+        }
+      }
+      @media screen and (max-width: 480px) {
+        .footer-top-button {
+          padding: 0.625rem 1.25rem;
+          border-radius: 1.5rem;
+        }
+        .footer-nav {
+          padding: 1.5rem 0;
+          gap: 1.5rem;
+        }
+        .mogu-logo {
+          height: 5rem;
+        }
+        .footer-links {
+          gap: 1.5rem;
+        }
+        .social-links {
+          gap: 0.8rem;
+        }
+        .social-icon {
+          width: 2rem;
+          height: 2rem;
+          font-size: 0.9rem;
+        }
+      }
+      .calendar-countdown {
+        text-align: center;
+        margin: 30px auto;
+        max-width: 600px;
+        background: linear-gradient(135deg, #fff5f5 0, #fff8f8 100%);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(203, 7, 8, 0.15);
+        position: relative;
+        overflow: hidden;
+        border: 2px solid rgba(203, 7, 8, 0.2);
+      }
+      .calendar-countdown::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.8) 0,
+          rgba(255, 255, 255, 0) 70%
+        );
+        animation: 3s infinite pulse;
+        z-index: 0;
+        opacity: 0.5;
+      }
+      .calendar-title {
+        font-size: var(--font-size-xl);
+        font-weight: 800;
+        margin-bottom: 15px;
+        color: var(--color-primary);
+        text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8);
+        position: relative;
+        z-index: 1;
+        display: inline-block;
+        padding: 5px 20px;
+        letter-spacing: var(--letter-spacing-wide);
+        line-height: var(--line-height-tight);
+      }
+      .calendar-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 10%;
+        width: 80%;
+        height: 2px;
+        background: linear-gradient(
+          to right,
+          rgba(203, 7, 8, 0) 0,
+          rgba(203, 7, 8, 0.5) 50%,
+          rgba(203, 7, 8, 0) 100%
+        );
+      }
+      .calendar-container {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        position: relative;
+        z-index: 1;
+        padding: 0.5rem;
+      }
+      .calendar-page {
+        background: linear-gradient(135deg, #fff 0, #f8f8f8 100%);
+        border: none;
+        border-radius: 12px;
+        width: 80px;
+        height: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1),
+          inset 0 -4px 0 rgba(0, 0, 0, 0.05);
+        position: relative;
+        overflow: hidden;
+        transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform-style: preserve-3d;
+        perspective: 1000px;
+      }
+      .category-list,
+      .touch-device {
+        -webkit-overflow-scrolling: touch;
+      }
+      .calendar-page:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15),
+          inset 0 -4px 0 rgba(0, 0, 0, 0.05);
+      }
+      .calendar-page::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 30px;
+        background: linear-gradient(135deg, #cb0708 0, #f33 100%);
+        z-index: 0;
+      }
+      .calendar-page span {
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: #333;
+        position: relative;
+        z-index: 1;
+        margin-top: 15px;
+        font-feature-settings: "tnum";
+        font-variant-numeric: tabular-nums;
+        text-shadow: 0 1px 0 #fff, 0 2px 3px rgba(0, 0, 0, 0.1);
+        transform: translateZ(20px);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .calendar-page:hover span {
+        transform: translateZ(30px);
+      }
+      .calendar-label {
+        margin-top: 10px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: #333;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 4px 12px;
+        border-radius: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        letter-spacing: 0.05em;
+        transform: translateZ(10px);
+      }
+      .coupon-notice,
+      .product-description {
+        word-break: keep-all;
+        overflow-wrap: break-word;
+        letter-spacing: var(--letter-spacing-normal);
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(0.8);
+          opacity: 0.3;
+          opacity: 1;
+          transform: scale(1) translateZ(20px);
+        }
+        50% {
+          transform: scale(1);
+          opacity: 0.5;
+          opacity: 0.8;
+          transform: scale(0.98) translateZ(20px);
+        }
+      }
+      #countdown-seconds {
+        animation: 1s cubic-bezier(0.4, 0, 0.2, 1) infinite pulse;
+        color: #cb0708;
+      }
+      .calendar-countdown::after {
+        content: "期間限定";
+        position: absolute;
+        top: 20px;
+        right: -30px;
+        background: var(--color-secondary);
+        color: #333;
+        font-size: 0.8rem;
+        font-weight: 700;
+        padding: 5px 40px;
+        transform: rotate(45deg);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 2;
+      }
+      .campaign-ended {
+        font-size: 2rem;
+        font-weight: 800;
+        color: #666;
+        padding: 20px;
+        background: linear-gradient(135deg, #f5f5f5 0, #e5e5e5 100%);
+        border-radius: 10px;
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+        text-shadow: 1px 1px 0 #fff;
+      }
+      .product-description {
+        white-space: pre-line;
+        margin-top: 0.5rem;
+        font-size: var(--font-size-sm);
+        line-height: var(--line-height-relaxed);
+        color: #333;
+        text-align: left;
+      }
+      .product-description span.nowrap {
+        display: inline-block;
+        white-space: nowrap;
+      }
+      .no-products {
+        text-align: center;
+        padding: 2rem;
+        color: #666;
+        font-style: italic;
+      }
+      .price-range {
+        display: block;
+        font-weight: 800;
+        color: red;
+        font-size: var(--font-size-3xl);
+        margin: 0.5rem 0;
+        position: relative;
+        padding: 0.5rem 1.5rem;
+        background: linear-gradient(135deg, #fff5f5, #fff);
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(255, 0, 0, 0.15);
+        border: 2px solid rgba(255, 0, 0, 0.1);
+      }
+      @keyframes pulsatePrice {
+        0%,
+        100% {
+          transform: scale(1);
+          text-shadow: 0 0 5px rgba(203, 7, 8, 0.2);
+        }
+        50% {
+          transform: scale(1.05);
+          text-shadow: 0 0 10px rgba(203, 7, 8, 0.3);
+        }
+      }
+      .price-1000 {
+        padding: 2rem 0 5rem;
+        background: var(--color-background);
+      }
+      .price-1000 .product-grid {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .price-1000 .product-card {
+        width: 100%;
+        max-width: 519px;
+        margin: 0 auto;
+      }
+      .price-1000 .product-title {
+        font-size: 1.5rem;
+        color: var(--color-black);
+        margin-bottom: 1rem;
+      }
+      .price-1000 .price-current {
+        font-size: 2.5rem;
+        color: var(--color-primary);
+        font-weight: 700;
+        margin: 1rem 0;
+      }
+      .price-1000 .product-description {
+        font-size: 1rem;
+        color: var(--color-black);
+        line-height: 1.6;
+        margin: 1rem 0;
+      }
+      .to-top .arrow {
+        color: #666;
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 0.8;
+        text-align: center;
+        transform: translateY(-4px);
+      }
+      .to-top:hover {
+        opacity: 0.8;
+      }
+      .category-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        padding: 15px 0;
+      }
+      .category-list {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .category-list::-webkit-scrollbar {
+        display: none;
+      }
+      .category-list li {
+        flex: 0 0 auto;
+      }
+      .category-list a {
+        display: block;
+        padding: 12px 30px;
+        color: var(--color-primary);
+        font-weight: 700;
+        font-size: 1.2rem;
+        border-radius: 25px;
+        background: var(--color-white);
+        border: 2px solid var(--color-primary);
+        transition: 0.3s;
+        white-space: nowrap;
+      }
+      .category-list a:hover {
+        background: var(--color-primary);
+        color: var(--color-white);
+      }
+      .scroll-down .category-section.sticky {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      .scroll-up .category-section.sticky {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      .category-button:active,
+      .footer-top-button:active,
+      .product-button:active,
+      .search-button:active {
+        transform: scale(0.98);
+        opacity: 0.9;
+      }
+      .coupon-item:hover,
+      .shinseikatsu-link:hover {
+        transform: translateY(-5px);
+      }
+      .price-current,
+      .price-range {
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      }
+      .discount-badge {
+        font-weight: 800;
+        display: inline-block;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+      }
+      .touch-device .category-button,
+      .touch-device .footer-top-button,
+      .touch-device .product-button,
+      .touch-device .search-button,
+      .touch-device .social-icon {
+        -webkit-tap-highlight-color: transparent;
+      }
+      .touch-device .category-button:hover {
+        transform: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .touch-device .product-card:hover {
+        transform: none;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+      }
+      .touch-device .product-card:hover .product-image {
+        transform: none;
+        filter: brightness(1);
+      }
+      .touch-device .calendar-page:hover {
+        transform: none;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1),
+          inset 0 -4px 0 rgba(0, 0, 0, 0.05);
+      }
+      .touch-device .category-button:active {
+        transform: scale(0.98);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        background: linear-gradient(to right, #f33, #bf0000);
+      }
+      .touch-device .product-card:active {
+        transform: scale(0.98);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      .touch-device .footer-top-button:active {
+        transform: scale(0.95);
+        background: linear-gradient(to right, #ffb366, #f93);
+      }
+      .touch-device .search-button:active {
+        transform: scale(0.95);
+        background: linear-gradient(to right, #1a9bb3, #0d8da5);
+      }
+      .touch-device a:focus,
+      .touch-device button:focus,
+      .touch-device input:focus {
+        outline: 0;
+        box-shadow: 0 0 0 2px rgba(203, 7, 8, 0.3);
+      }
+      .coupon-notice {
+        color: #666;
+        font-size: var(--font-size-lg);
+        margin-top: 1.5rem;
+        text-align: center;
+        line-height: var(--line-height-relaxed);
+        padding: 0 1rem;
+        white-space: normal;
+      }
+      .shinseikatsu-section {
+        margin: 2rem auto 3rem;
+        max-width: 800px;
+        text-align: center;
+        position: relative;
+      }
+      .shinseikatsu-heading {
+        color: #cb0708;
+        font-size: var(--font-size-2xl);
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-align: center;
+        line-height: var(--line-height-tight);
+        text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8);
+        letter-spacing: var(--letter-spacing-wide);
+      }
+      .shinseikatsu-subheading {
+        font-size: var(--font-size-lg);
+        color: #333;
+        text-align: center;
+        margin-bottom: 1.5rem;
+        letter-spacing: var(--letter-spacing-normal);
+        line-height: var(--line-height-normal);
+      }
+      .shinseikatsu-link {
+        display: block;
+        transition: transform 0.3s, opacity 0.3s;
+      }
+      .shinseikatsu-link:hover {
+        opacity: 0.95;
+      }
+      .shinseikatsu-image {
+        width: 100%;
+        max-width: 800px;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+      .gw-travel-section {
+        position: relative;
+        padding: 2rem 0;
+        background: linear-gradient(135deg, #fff9f9 0, #f9f9ff 100%);
+        overflow: hidden;
+      }
+      .gw-travel-section::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        right: -50%;
+        bottom: -50%;
+        background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffb6c1' fill-opacity='0.2'%3E%3Cpath d='M60 0L0 60l60 60 60-60L60 0zm0 20l40 40-40 40-40-40 40-40z'/%3E%3Cpath d='M30 0L0 30l30 30 30-30L30 0zm0 10l20 20-20 20-20-20 20-20z'/%3E%3Cpath d='M90 0L60 30l30 30 30-30L90 0zm0 10l20 20-20 20-20-20 20-20z'/%3E%3Cpath d='M0 60L30 90l30-30-30-30L0 60zm10 0l20 20-20 20-20-20 20-20z'/%3E%3Cpath d='M60 60L90 90l30-30-30-30L60 60zm10 0l20 20-20 20-20-20 20-20z'/%3E%3C/g%3E%3C/svg%3E");
+        z-index: 0;
+        animation: 200s linear infinite alternate floatingBackground;
+      }
+      @keyframes floatingBackground {
+        0% {
+          transform: translate(0, 0);
+        }
+        100% {
+          transform: translate(-10%, -10%);
+        }
+      }
+      .coupon-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        margin: 2rem 0;
+        padding: 0 1rem;
+      }
+      .coupon-code,
+      .coupon-discount {
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+      .coupon-item {
+        background: linear-gradient(135deg, #fff 0, #f8f8f8 100%);
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s;
+      }
+      .coupon-discount {
+        font-size: 2rem;
+        color: var(--color-primary);
+      }
+      .coupon-code {
+        font-size: 1.5rem;
+        color: var(--color-black);
+        padding: 0.5rem;
+        background: #f0f0f0;
+        border-radius: 6px;
+      }
+      .coupon-note,
+      .coupon-validity {
+        font-size: 0.875rem;
+        color: var(--color-gray);
+      }
+      .coupon-note {
+        text-align: center;
+        margin-top: 1rem;
+      }
+      .coupon-note p {
+        margin: 0.25rem 0;
+      }
+      .product-card--coupon {
+        background-color: #fff9e0;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 1rem 1rem 100px;
+        text-align: center;
+        width: 519px;
+        position: relative;
+        margin: 0 auto;
+      }
+      .product-card--coupon .product-image {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: contain;
+        background: #fff;
+      }
+      .product-card--coupon .product-description {
+        display: none;
+      }
+      .product-card--coupon .product-price {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+        white-space: nowrap;
+      }
+      @media (max-width: 768px) {
+        .bargain-section,
+        .new-section,
+        .pockiri-section,
+        .popular-section {
+          padding: 1.5rem 0;
+          border-radius: 8px;
+        }
+        .calendar-countdown {
+          margin: 1.5rem auto;
+          padding: 15px;
+        }
+        .calendar-container {
+          gap: 10px;
+        }
+        .calendar-page {
+          width: 65px;
+          height: 75px;
+        }
+        .calendar-page::before {
+          height: 25px;
+        }
+        .calendar-page span {
+          font-size: 2rem;
+          margin-top: 12px;
+        }
+        .calendar-label {
+          font-size: 0.8rem;
+          padding: 3px 10px;
+        }
+        .coupon-code,
+        .price-1000 .product-title {
+          font-size: 1.25rem;
+        }
+        .price-1000 .price-current {
+          font-size: 2rem;
+        }
+        .price-1000 .product-description {
+          font-size: 0.9rem;
+        }
+        .to-top {
+          right: 15px;
+          width: 40px;
+          height: 40px;
+          bottom: 85px;
+        }
+        .to-top .arrow {
+          font-size: 20px;
+          line-height: 0.8;
+          transform: translateY(-2px);
+        }
+        .category-nav {
+          padding: 12px 10px;
+        }
+        .category-list {
+          gap: 1rem;
+          padding: 0 5px;
+          justify-content: flex-start;
+        }
+        .category-list a {
+          padding: 8px 16px;
+          font-size: 0.9rem;
+          border-radius: 20px;
+        }
+        .category-button,
+        .category-text {
+          font-size: 0.9rem;
+          white-space: normal;
+        }
+        .category-buttons {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 0.7rem;
+          padding: 0 0.5rem;
+        }
+        .category-button {
+          width: 100%;
+          padding: 0.8rem;
+          background: linear-gradient(to right, #bf0000, #f33);
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+          justify-content: space-between;
+          min-height: auto;
+        }
+        .category-text {
+          line-height: 1.3;
+          text-align: left;
+        }
+        .category-text br {
+          display: none;
+        }
+        .category-icon {
+          width: 1.25rem;
+          height: 1.25rem;
+        }
+        .product-price .price-range {
+          font-size: 1.5rem !important;
+        }
+        .coupon-notice {
+          font-size: var(--font-size-sm);
+          margin-top: 1.2rem;
+        }
+        .shinseikatsu-section {
+          margin: 1.5rem auto 2rem;
+          padding: 0 1rem;
+        }
+        .shinseikatsu-heading {
+          font-size: var(--font-size-xl);
+          margin-bottom: 0.8rem;
+        }
+        .shinseikatsu-subheading {
+          font-size: var(--font-size-base);
+          margin-bottom: 1rem;
+        }
+        .shinseikatsu-image {
+          border-radius: 8px;
+        }
+        .price-current {
+          font-size: 2.8rem;
+          font-weight: 800;
+        }
+        .price-original {
+          font-size: 1.6rem;
+        }
+        .discount-badge {
+          font-size: 1.8rem;
+          padding: 0.3rem 0.6rem;
+        }
+        .price-range {
+          font-size: 2.4rem;
+          font-weight: 800;
+        }
+        .coupon-content {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+        .coupon-item {
+          padding: 1rem;
+        }
+        .coupon-discount {
+          font-size: 1.5rem;
+        }
+        .product-card--coupon {
+          width: calc(50% - 1rem);
+          padding: 0.75rem;
+          margin: 0 0.5rem;
+        }
+      }
+      @media (max-width: 480px) {
+        .calendar-countdown {
+          margin: 1rem auto;
+          padding: 10px;
+        }
+        .calendar-container {
+          gap: 8px;
+        }
+        .calendar-page {
+          width: 55px;
+          height: 65px;
+        }
+        .calendar-page::before {
+          height: 20px;
+        }
+        .calendar-page span {
+          font-size: 1.8rem;
+          margin-top: 10px;
+        }
+        .calendar-label {
+          font-size: 0.75rem;
+          padding: 2px 8px;
+        }
+        .category-list {
+          gap: 1rem;
+        }
+        .category-list a {
+          padding: 6px 12px;
+          font-size: 0.9rem;
+        }
+        .category-button,
+        .category-text {
+          font-size: 0.85rem;
+        }
+        .category-buttons {
+          gap: 0.5rem;
+        }
+        .category-button {
+          padding: 0.6rem;
+        }
+        .price-current {
+          font-size: 2.1rem;
+        }
+        .price-original {
+          font-size: 1.4rem;
+        }
+        .discount-badge {
+          font-size: 1.6rem;
+        }
+        .price-range {
+          font-size: 2.2rem;
+        }
+        .product-card--coupon {
+          width: calc(100% - 1rem);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- セールヘッダー -->
+      <header id="top" class="sale-header">
+        <div class="balloon-container"></div>
+        <div class="confetti-container"></div>
+        <img
+          src="https://www.rakuten.ne.jp/gold/mogustore/sales/rakuten_marathon/202504_2/statics/sale_header.svg"
+          alt="お買い物マラソン"
+          class="sale-header-img"
+          loading="eager"
+          width="100%"
+          height="auto"
+          fetchpriority="high"
+          decoding="sync"
+        />
+        <!-- カウントダウン部分 -->
+        <div class="calendar-countdown">
+          <div class="calendar-title">セール終了まで残り</div>
+          <div class="calendar-container">
+            <div class="calendar-item">
+              <div class="calendar-page">
+                <span id="countdown-days">00</span>
+              </div>
+              <div class="calendar-unit">日</div>
+            </div>
+            <div class="calendar-item">
+              <div class="calendar-page">
+                <span id="countdown-hours">00</span>
+              </div>
+              <div class="calendar-unit">時間</div>
+            </div>
+            <div class="calendar-item">
+              <div class="calendar-page">
+                <span id="countdown-minutes">00</span>
+              </div>
+              <div class="calendar-unit">分</div>
+            </div>
+            <div class="calendar-item">
+              <div class="calendar-page">
+                <span id="countdown-seconds">00</span>
+              </div>
+              <div class="calendar-unit">秒</div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- クーポンセクション -->
+      <section class="coupon-section">
+        <div class="coupon-container">
+          <div class="coupon-message">
+            <a
+              href="https://coupon.rakuten.co.jp/getCoupon?getkey=VU1SUy0zQUc5LVZHU04tSkhQRA--&rt="
+              target="_blank"
+              rel="noopener"
+            >
+              <img
+                src="https://www.rakuten.ne.jp/gold/mogustore/sales/rakuten_marathon/202504_2/statics/coupon_stamp.svg"
+                alt="GW応援特別アイテム！クーポンGETでお得に購入"
+                width="400"
+                height="auto"
+              />
+            </a>
+          </div>
+          <div class="coupon-content">
+            <!-- ここに動的に商品カードが挿入されます -->
+          </div>
+        </div>
+      </section>
+
+      <!-- カテゴリーセクション -->
+      <section class="category-wrapper">
+        <!-- カテゴリーナビゲーション部分 -->
+        <div id="category-section" class="category-section">
+          <div class="category-buttons">
+            <a href="#pockiri" class="category-button">
+              <div class="category-text">
+                送料無料・1000円ポッキリ<br />お試しアイテム
+              </div>
+              <img
+                src="https://www.rakuten.ne.jp/gold/mogustore/sales/rakuten_marathon/202504/statics/arrow.png"
+                alt="矢印"
+                class="category-icon"
+              />
+            </a>
+            <a href="#gw_travel" class="category-button">
+              <div class="category-text">GWのおすすめ<br />アイテム</div>
+              <img
+                src="https://www.rakuten.ne.jp/gold/mogustore/sales/rakuten_marathon/202504/statics/arrow.png"
+                alt="矢印"
+                class="category-icon"
+              />
+            </a>
+            <a href="#popular" class="category-button">
+              <div class="category-text">今売れている<br />人気アイテム</div>
+              <img
+                src="https://www.rakuten.ne.jp/gold/mogustore/sales/rakuten_marathon/202504/statics/arrow.png"
+                alt="矢印"
+                class="category-icon"
+              />
+            </a>
+            <a href="#new" class="category-button">
+              <div class="category-text">新商品も<br />続々登場！</div>
+              <img
+                src="https://www.rakuten.ne.jp/gold/mogustore/sales/rakuten_marathon/202504/statics/arrow.png"
+                alt="矢印"
+                class="category-icon"
+              />
+            </a>
+            <a href="#bargain" class="category-button">
+              <div class="category-text">お得なセット商品</div>
+              <img
+                src="https://www.rakuten.ne.jp/gold/mogustore/sales/rakuten_marathon/202504/statics/arrow.png"
+                alt="矢印"
+                class="category-icon"
+              />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- メインコンテンツ -->
+      <main>
+        <!-- 送料無料・1000円ポッキリセクション -->
+        <section id="pockiri" class="pockiri-section">
+          <h2 class="section-title">
+            <span>送料無料・1000円ポッキリお試しアイテム！</span>
+          </h2>
+          <div class="product-grid" id="pockiri-products">
+            <!-- 商品カードは動的に生成されます -->
+          </div>
+        </section>
+
+        <!-- GW旅行セクション -->
+        <section id="gw_travel" class="gw-travel-section">
+          <div class="section-background">
+            <img
+              src="https://www.rakuten.ne.jp/gold/mogustore/sales/rakuten_marathon/202504/statics/gw_background.svg"
+              alt=""
+              class="background-svg"
+              loading="lazy"
+              width="100%"
+              height="auto"
+            />
+          </div>
+          <h2 class="section-title">
+            <span>GWの旅行やお家でまったり…にオススメなアイテム！</span>
+          </h2>
+          <div class="product-grid" id="gw_travel-products">
+            <!-- 商品カードは動的に生成されます -->
+          </div>
+        </section>
+
+        <!-- 人気アイテムセクション -->
+        <section id="popular" class="popular-section">
+          <h2 class="section-title">
+            <span>今売れている人気アイテム！</span>
+          </h2>
+          <div class="product-grid" id="popular-products">
+            <!-- 商品カードは動的に生成されます -->
+          </div>
+        </section>
+
+        <!-- 新商品セクション -->
+        <section id="new" class="new-section">
+          <h2 class="section-title">
+            <span>新商品も続々登場！</span>
+          </h2>
+          <div class="product-grid" id="new-products">
+            <!-- 商品カードは動的に生成されます -->
+          </div>
+        </section>
+
+        <!-- お買い得品セクション -->
+        <section id="bargain" class="bargain-section">
+          <h2 class="section-title">
+            <span>セット販売やMOGUストア限定のお買い得品！</span>
+          </h2>
+          <div class="product-grid" id="bargain-products">
+            <!-- 商品カードは動的に生成されます -->
+          </div>
+        </section>
+      </main>
+
+      <!-- フッター -->
+      <footer class="site-footer">
+        <div class="footer-content">
+          <div class="footer-search">
+            <form
+              class="search-box"
+              action="https://search.rakuten.co.jp/search/mall/"
+              method="get"
+            >
+              <input
+                type="text"
+                name="sitem"
+                placeholder="商品を探す"
+                class="search-input"
+              />
+              <input type="hidden" name="sid" value="422608" />
+              <button type="submit" class="search-button">検索</button>
+            </form>
+          </div>
+          <div class="footer-logo-button-wrapper">
+            <a href="#top" class="footer-top-button">トップページへ</a>
+          </div>
+          <nav class="footer-nav">
+            <div class="footer-logo">
+              <img
+                src="https://www.rakuten.ne.jp/gold/mogustore/sales/rakuten_marathon/202504_2/statics/logo.png"
+                alt="MOGUロゴ"
+                class="mogu-logo"
+              />
+            </div>
+            <div class="social-links">
+              <span class="social-icon twitter">
+                <i class="fab fa-twitter"></i>
+              </span>
+              <span class="social-icon facebook">
+                <i class="fab fa-facebook-f"></i>
+              </span>
+              <span class="social-icon instagram">
+                <i class="fab fa-instagram"></i>
+              </span>
+              <span class="social-icon line">
+                <i class="fab fa-line"></i>
+              </span>
+            </div>
+            <ul class="footer-links">
+              <li><a href="https://www.rakuten.co.jp/mogustore/">TOP</a></li>
+              <li>
+                <a href="https://www.rakuten.co.jp/mogustore/info.html"
+                  >会社概要</a
+                >
+              </li>
+              <li><a href="https://www.rakuten.co.jp/">楽天市場</a></li>
+            </ul>
+            <div class="copyright">
+              &copy; 2025 MOGU STORE All Rights Reserved.
+            </div>
+          </nav>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+
+    <!-- パフォーマンス最適化されたJavaScript -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // DOM要素の参照をキャッシュ
+        const countdownElements = {
+          days: document.getElementById("countdown-days"),
+          hours: document.getElementById("countdown-hours"),
+          minutes: document.getElementById("countdown-minutes"),
+          seconds: document.getElementById("countdown-seconds"),
+          container: document.querySelector(".calendar-countdown"),
+          title: document.querySelector(".calendar-title"),
+        };
+
+        // 日付計算用の定数
+        const SALE_DATES = {
+          start: new Date("2025-04-14T20:00:00+09:00").getTime(),
+          end: new Date("2025-04-17T09:59:59+09:00").getTime(),
+        };
+
+        // 時間計算用の定数
+        const TIME_UNITS = {
+          day: 24 * 60 * 60 * 1000,
+          hour: 60 * 60 * 1000,
+          minute: 60 * 1000,
+          second: 1000,
+        };
+
+        // パフォーマンス最適化されたカウントダウン関数
+        function updateCountdown() {
+          const now = Date.now();
+
+          // セール終了後
+          if (now > SALE_DATES.end) {
+            countdownElements.container.innerHTML =
+              '<p class="campaign-ended">キャンペーン終了</p>';
+            return false; // アニメーションフレームを停止
+          }
+
+          // セール開始前またはセール中の時間差分計算
+          const targetDate =
+            now < SALE_DATES.start ? SALE_DATES.start : SALE_DATES.end;
+          const diff = targetDate - now;
+
+          // 時間の計算
+          const days = Math.floor(diff / TIME_UNITS.day);
+          const hours = Math.floor((diff % TIME_UNITS.day) / TIME_UNITS.hour);
+          const minutes = Math.floor(
+            (diff % TIME_UNITS.hour) / TIME_UNITS.minute
+          );
+          const seconds = Math.floor(
+            (diff % TIME_UNITS.minute) / TIME_UNITS.second
+          );
+
+          // DOMの更新を最小限に
+          requestAnimationFrame(() => {
+            countdownElements.days.textContent = String(days).padStart(2, "0");
+            countdownElements.hours.textContent = String(hours).padStart(
+              2,
+              "0"
+            );
+            countdownElements.minutes.textContent = String(minutes).padStart(
+              2,
+              "0"
+            );
+            countdownElements.seconds.textContent = String(seconds).padStart(
+              2,
+              "0"
+            );
+
+            // タイトルの更新（変更が必要な場合のみ）
+            const newTitle =
+              now < SALE_DATES.start ? "開始まで残り" : "終了まで残り";
+            if (countdownElements.title.textContent !== newTitle) {
+              countdownElements.title.textContent = newTitle;
+            }
+          });
+
+          return true; // アニメーションフレームを継続
+        }
+
+        // Intersection Observerを使用して画面内に表示されている時のみ更新
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                let animationFrame;
+                function animate() {
+                  if (updateCountdown()) {
+                    animationFrame = requestAnimationFrame(animate);
+                  }
+                }
+                animate();
+              } else {
+                if (animationFrame) {
+                  cancelAnimationFrame(animationFrame);
+                }
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        observer.observe(countdownElements.container);
+
+        // パフォーマンス最適化されたスクロールハンドラー
+        let lastScrollTop = 0;
+        let scrollTimeout;
+        const body = document.body;
+        const scrollThreshold = 5;
+        const categorySection = document.querySelector(".category-section");
+        const originalOffset = categorySection?.offsetTop || 0;
+
+        window.addEventListener(
+          "scroll",
+          () => {
+            if (scrollTimeout) {
+              return;
+            }
+
+            scrollTimeout = setTimeout(() => {
+              const st = window.pageYOffset;
+
+              // スクロール方向の検出と処理
+              if (Math.abs(lastScrollTop - st) <= scrollThreshold) {
+                scrollTimeout = null;
+                return;
+              }
+
+              if (st > lastScrollTop && st > 100) {
+                body.classList.add("scroll-down");
+                body.classList.remove("scroll-up");
+              } else if (st < lastScrollTop) {
+                body.classList.add("scroll-up");
+                body.classList.remove("scroll-down");
+              }
+
+              // カテゴリーセクションの固定表示制御
+              if (categorySection) {
+                const isMobile = window.innerWidth <= 768;
+                // デスクトップの場合は要素の位置から画面高さの30%分下で切り替え
+                // モバイルの場合は従来通り5%早く切り替え
+                const triggerPoint =
+                  originalOffset +
+                  (isMobile
+                    ? -window.innerHeight * 0.05
+                    : window.innerHeight * 0.3);
+                const transitionDistance = window.innerHeight * 0.3;
+                const progress = Math.min(
+                  1,
+                  Math.max(0, (st - triggerPoint) / transitionDistance)
+                );
+
+                if (st > triggerPoint) {
+                  if (progress > 0.8) {
+                    categorySection.classList.add("sticky");
+                  } else if (progress < 0.2) {
+                    categorySection.classList.remove("sticky");
+                  }
+                } else {
+                  categorySection.classList.remove("sticky");
+                }
+              }
+
+              lastScrollTop = st <= 0 ? 0 : st;
+              scrollTimeout = null;
+            }, 16); // 約60fps
+          },
+          { passive: true }
+        );
+
+        // タッチデバイスの検出（一度だけ実行）
+        if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
+          document.body.classList.add("touch-device");
+        }
+
+        // 画像の遅延読み込み
+        if ("loading" in HTMLImageElement.prototype) {
+          document.querySelectorAll("img[loading='lazy']").forEach((img) => {
+            if (img.dataset.src) {
+              img.src = img.dataset.src;
+            }
+          });
+        } else {
+          // Fallback for browsers that don't support lazy loading
+          const lazyImageObserver = new IntersectionObserver(
+            (entries, observer) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  const img = entry.target;
+                  if (img.dataset.src) {
+                    img.src = img.dataset.src;
+                    observer.unobserve(img);
+                  }
+                }
+              });
+            }
+          );
+
+          document.querySelectorAll("img[loading='lazy']").forEach((img) => {
+            lazyImageObserver.observe(img);
+          });
+        }
+      });
+    </script>
+
+    <!-- 風船とクラッカーのアニメーション -->
+    <script>
+      // 風船とクラッカーのアニメーション
+      function createCelebration() {
+        const colors = [
+          "#ff0000",
+          "#ff69b4",
+          "#4169e1",
+          "#ffd700",
+          "#32cd32",
+          "#ff4500",
+        ];
+        const balloonContainer = document.querySelector(".balloon-container");
+        const confettiContainer = document.querySelector(".confetti-container");
+
+        // 風船を作成
+        function createBalloon() {
+          const balloon = document.createElement("div");
+          balloon.className = "balloon";
+          const color = colors[Math.floor(Math.random() * colors.length)];
+          balloon.style.setProperty(
+            "--float-duration",
+            `${4 + Math.random() * 4}s`
+          );
+          balloon.style.setProperty(
+            "--rotation",
+            `${-30 + Math.random() * 60}deg`
+          );
+          balloon.style.color = color;
+          balloon.style.left = `${Math.random() * 100}%`;
+          balloonContainer.appendChild(balloon);
+
+          // アニメーション終了後に要素を削除
+          balloon.addEventListener("animationend", () => {
+            balloon.remove();
+          });
+        }
+
+        // クラッカーを作成
+        function createConfetti() {
+          const confetti = document.createElement("div");
+          confetti.className = "confetti";
+          const color = colors[Math.floor(Math.random() * colors.length)];
+          confetti.style.setProperty(
+            "--fall-duration",
+            `${2 + Math.random() * 2}s`
+          );
+          confetti.style.setProperty("--confetti-color", color);
+          confetti.style.left = `${Math.random() * 100}%`;
+          confettiContainer.appendChild(confetti);
+
+          // アニメーション終了後に要素を削除
+          confetti.addEventListener("animationend", () => {
+            confetti.remove();
+          });
+        }
+
+        // 初期の演出
+        function initialCelebration() {
+          // 最初の風船とクラッカーを一斉に作成
+          for (let i = 0; i < 15; i++) {
+            setTimeout(() => {
+              createBalloon();
+              createConfetti();
+              createConfetti();
+            }, i * 100);
+          }
+        }
+
+        // ページ読み込み時に演出を開始
+        initialCelebration();
+
+        // 追加の風船とクラッカーをランダムに作成（より控えめに）
+        setInterval(() => {
+          if (Math.random() < 0.3) {
+            // 30%の確率で
+            createBalloon();
+            createConfetti();
+          }
+        }, 2000);
+      }
+
+      // DOMContentLoadedイベントで初期化
+      document.addEventListener("DOMContentLoaded", () => {
+        createCelebration();
+      });
+    </script>
+
+    <!-- 商品データの読み込みと表示 -->
+    <script>
+      async function loadProductData() {
+        try {
+          const response = await fetch("product_data_v2.json");
+          const data = await response.json();
+          console.log("読み込んだ商品データ:", data); // デバッグ用ログ
+          return data;
+        } catch (error) {
+          console.error("商品データの読み込みに失敗しました:", error);
+          return null;
+        }
+      }
+
+      function createProductCard(product, isCoupon = false) {
+        const card = document.createElement("article");
+        card.className = isCoupon
+          ? "product-card product-card--coupon"
+          : "product-card";
+
+        // 価格表示の生成
+        const getPriceHtml = (product) => {
+          if (product.isPriceRange) {
+            return `<span class="price-range">￥${product.minPrice.toLocaleString()}～${product.maxPrice.toLocaleString()}(税込)</span>`;
+          }
+          if (product.originalPrice === product.currentPrice) {
+            return `<span class="price-current">￥${product.currentPrice.toLocaleString()}(税込)</span>`;
+          }
+          const discountRate = Math.floor(
+            100 * (1 - product.currentPrice / product.originalPrice)
+          );
+          return `
+            <span class="price-original">￥${product.originalPrice.toLocaleString()}(税込)</span>
+            <span class="discount-badge">${discountRate}%OFF</span>
+            <span class="price-current">￥${product.currentPrice.toLocaleString()}(税込)</span>
+          `;
+        };
+
+        // 画像URLの生成
+        const getImageUrl = (product) => {
+          let imageUrl = product.imageUrl;
+          if (imageUrl.startsWith("/img/rakuten_cabinet/")) {
+            const fileName = imageUrl.split("/").pop();
+            const imageMap = {
+              "001001katakaru02": "katakaru2.jpg",
+              "002005osuwarirabura": "osuwarirabura.jpg",
+              "001001kazoku_cvrset": "kazoku_cvrset.jpg",
+              "001001kazoku_pre_cvrset_br": "kazoku_pre_cvrset_br.jpg",
+              "003001kumo_petsofa": "003001kumo_petsofa.jpg",
+              "003001kumo_petsofa_r": "003001kumo_petsofa_r.jpg",
+            };
+            const mappedFileName = imageMap[product.id] || fileName;
+            return `https://image.rakuten.co.jp/mogustore/cabinet/splp/11558925/11558926/${mappedFileName}`;
+          }
+          return imageUrl;
+        };
+
+        const buttonLink = isCoupon
+          ? "https://coupon.rakuten.co.jp/getCoupon?getkey=VU1SUy0zQUc5LVZHU04tSkhQRA--&rt="
+          : product.link;
+
+        card.innerHTML = `
+          <div class="product-link">
+            <a href="${product.link}" target="_blank" rel="noopener">
+              <img
+                src="${getImageUrl(product)}"
+                alt="${product.title}"
+                class="product-image"
+                loading="lazy"
+                width="100%"
+                height="auto"
+                decoding="async"
+              />
+            </a>
+            <div class="product-info">
+              <h3 class="product-title">${product.title}</h3>
+              <div class="product-price">
+                ${getPriceHtml(product)}
+              </div>
+              <p class="product-description">${product.description || ""}</p>
+            </div>
+          </div>
+          <a href="${buttonLink}" class="${
+          isCoupon ? "coupon-button" : "product-button"
+        }" target="_blank" rel="noopener">
+            ${isCoupon ? "クーポンをGETする" : "商品ページ"}
+          </a>
+        `;
+
+        return card;
+      }
+
+      async function displayCouponProduct() {
+        const productData = await loadProductData();
+        if (!productData || !productData.coupon) return;
+
+        const couponContent = document.querySelector(".coupon-content");
+        if (!couponContent) return;
+
+        const couponProduct = productData.coupon[0]; // 最初のクーポン商品を表示
+        if (couponProduct) {
+          const card = createProductCard(couponProduct, true);
+          couponContent.appendChild(card);
+        }
+      }
+
+      function displayProducts(data) {
+        console.log("表示する商品データ:", data);
+        const sections = {
+          pockiri: data.pockiri || [],
+          gw_travel: data.gw_travel || [],
+          popular: data.popular || [],
+          new: data.new || [],
+          bargain: data.bargain || [],
+          other: data.other || [],
+        };
+
+        console.log("セクション別商品データ:", sections);
+
+        // DocumentFragmentを使用してDOM操作を最小限に抑える
+        const renderSection = (sectionId, products) => {
+          const container = document.getElementById(`${sectionId}-products`);
+          if (!container) return;
+
+          const fragment = document.createDocumentFragment();
+
+          if (products.length > 0) {
+            products.forEach((product) => {
+              const card = createProductCard(product);
+              fragment.appendChild(card);
+            });
+          } else {
+            const noProducts = document.createElement("p");
+            noProducts.className = "no-products";
+            noProducts.textContent = "現在、このカテゴリーの商品はありません。";
+            fragment.appendChild(noProducts);
+          }
+
+          container.innerHTML = "";
+          container.appendChild(fragment);
+        };
+
+        Object.keys(sections).forEach((section) => {
+          renderSection(section, sections[section]);
+        });
+      }
+
+      // ページ読み込み時に商品データを読み込んで表示
+      document.addEventListener("DOMContentLoaded", async () => {
+        const productData = await loadProductData();
+        if (productData) {
+          displayProducts(productData);
+          displayCouponProduct(); // クーポン商品の表示を追加
+        }
+      });
+    </script>
+
+    <!-- カテゴリナビの固定表示開始位置の調整 -->
+    <script>
+      window.addEventListener("scroll", function () {
+        const nav = document.querySelector(".category-nav");
+        const headerHeight =
+          document.querySelector(".sale-header").offsetHeight;
+        const countdownHeight =
+          document.querySelector(".countdown-section").offsetHeight;
+        const couponHeight =
+          document.querySelector(".coupon-section").offsetHeight;
+
+        // 新生活応援特集セクションも考慮
+        if (
+          window.scrollY >
+          headerHeight +
+            countdownHeight +
+            couponHeight +
+            document.querySelector(".shinseikatsu-section").offsetHeight
+        ) {
+          nav.classList.add("fixed");
+        } else {
+          nav.classList.remove("fixed");
+        }
+      });
+    </script>
+  </body>
+</html>

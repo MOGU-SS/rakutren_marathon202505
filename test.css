@@ -1,0 +1,2324 @@
+/* 変数定義 */
+:root {
+  /* カラー */
+  --color-primary: #cb0708;
+  --color-secondary: #ffd400;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-gray: #666666;
+  --color-background: #c90908;
+  --color-kidnapper: #ffffff;
+
+  /* セクション背景色 */
+  --color-section-1: #fff9f9;
+  --color-section-2: #f9f9ff;
+  --color-section-3: #fffbf6;
+  --color-section-4: #f6fff9;
+
+  /* フォント */
+  --font-family-base: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-size-base: 1rem;
+  --spacing-base: 1rem;
+}
+
+/* リセット */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family-base);
+  line-height: 1.6;
+  color: var(--color-black);
+  background: var(--color-kidnapper);
+  font-size: var(--font-size-base);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* レイアウト */
+.container {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* セールヘッダー */
+.sale-header {
+  width: 100%;
+  padding: 0;
+  background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 50%, #e6f3ff 100%);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 風船のアニメーション */
+.balloon-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.balloon {
+  position: absolute;
+  width: 30px;
+  height: 40px;
+  background: radial-gradient(
+    circle at 50% 30%,
+    currentColor 60%,
+    rgba(255, 255, 255, 0.8) 100%
+  );
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  animation: floatUp var(--float-duration) ease-in-out forwards;
+  opacity: 0;
+}
+
+.balloon::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(120vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-20vh) rotate(var(--rotation));
+    opacity: 0;
+  }
+}
+
+/* クラッカーのアニメーション */
+.confetti-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.confetti {
+  position: absolute;
+  width: 8px;
+  height: 20px;
+  background: var(--confetti-color);
+  opacity: 0;
+  animation: confettiFall var(--fall-duration) ease-in-out forwards;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-10px) rotate(0deg);
+    opacity: 1;
+  }
+  25% {
+    transform: translateY(25vh) rotate(45deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(50vh) rotate(90deg);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translateY(75vh) rotate(135deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(100vh) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+.sale-header-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* カテゴリーセクション */
+.category-wrapper {
+  padding: calc(2 * var(--spacing-base)) var(--spacing-base);
+  background-color: var(--color-kidnapper);
+}
+
+/* クーポンセクション */
+.coupon-section {
+  padding: 2rem 0;
+  background: var(--color-white);
+}
+
+.coupon-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+}
+
+.coupon-message {
+  flex: 0 0 30%;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+}
+
+.coupon-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 519px));
+  gap: 1.5rem;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  justify-content: center;
+  max-width: 1200px;
+}
+
+.coupon-message img {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+}
+
+.coupon-button {
+  display: inline-block;
+  margin: 0 auto;
+  background: linear-gradient(to bottom, #c90908, #a50000);
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 1rem;
+  border-radius: 6px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  margin-top: auto;
+}
+
+.coupon-button:hover {
+  background: linear-gradient(to bottom, #a50000, #c90908);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.coupon-logo-container {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.coupon-logo {
+  max-width: 300px;
+  margin: 0 auto;
+  animation: float 3s ease-in-out infinite, appear 1.2s ease-out;
+  position: relative;
+  z-index: 1;
+}
+
+/* ロゴの浮かび上がるアニメーション */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+    filter: drop-shadow(0 5px 15px rgba(203, 7, 8, 0.2));
+  }
+  50% {
+    transform: translateY(-10px);
+    filter: drop-shadow(0 15px 20px rgba(203, 7, 8, 0.3));
+  }
+}
+
+/* ロゴのフェードインアニメーション */
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ロゴの背後に光るエフェクト */
+.coupon-logo-container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 250px;
+  height: 100px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 212, 0, 0.3) 0%,
+    rgba(255, 212, 0, 0) 70%
+  );
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+.coupon-card {
+  display: block;
+  width: 100%; /* 幅を100%に設定 */
+  max-width: 800px; /* 最大幅を設定 */
+  margin: 0 auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #fff; /* 背景色を白に設定 */
+  animation: cardAppear 0.8s ease-out 0.5s backwards;
+  position: relative;
+}
+
+/* クーポンカードのフェードインアニメーション */
+@keyframes cardAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.coupon-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(203, 7, 8, 0.15);
+}
+
+/* クーポンカードの光るエフェクト */
+.coupon-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  animation: shine 3s infinite 1s;
+  z-index: 1;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  20%,
+  100% {
+    left: 150%;
+  }
+}
+
+
+
+.campaign-section {
+  margin-bottom: 2rem;
+}
+
+.campaign-info {
+  margin-top: 0;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #fff 0%, #fff8e1 100%);
+  border-radius: 12px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.category-section {
+  padding: 0;
+  background-color: transparent;
+  text-align: center;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: top;
+  will-change: transform, opacity, padding;
+}
+
+.category-section.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(203, 7, 8, 0.15);
+  border-bottom: none;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.category-section.sticky .campaign-info {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.category-section .campaign-info {
+  opacity: 1;
+  max-height: 1000px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: top;
+}
+
+.category-section .category-buttons,
+.category-section .category-button,
+.category-section .category-text,
+.category-section .category-icon {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.category-section.transitioning {
+  transform: scale(0.98);
+  opacity: 0.95;
+}
+
+/* カテゴリーボタンのレイアウト - デスクトップは2x2グリッド、モバイルは縦4つ並び */
+.category-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.category-row {
+  display: contents;
+}
+
+.category-button {
+  background: linear-gradient(to right, #bf0000, #ff3333);
+  border-radius: 10px;
+  padding: var(--spacing-base) calc(1.5 * var(--spacing-base));
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-text {
+  color: var(--color-white);
+  font-weight: bold;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  text-align: left;
+  z-index: 1;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.category-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  object-fit: contain;
+  z-index: 1;
+  margin-left: 0.625rem;
+}
+
+.category-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(to right, #ff3333, #bf0000);
+}
+
+.campaign-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #cb0708;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.campaign-period {
+    position: relative;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0;
+}
+
+.campaign-period-label {
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    background: #e87b99;
+    color: #fff;
+    font-size: 1.1rem;
+    padding: .4rem 2rem;
+    border-radius: 20px;
+    z-index: 1;
+}
+
+.period-date {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+.countdown {
+  margin-top: 1rem;
+}
+
+.countdown-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #28b6cf;
+  margin-bottom: 1rem;
+}
+
+.countdown-wrap {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f0f8ff;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  min-width: 80px;
+}
+
+.countdown-item span:first-child {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #28b6cf;
+  line-height: 1.2;
+}
+
+.countdown-label {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.2rem;
+}
+
+
+
+
+
+/* セクション */
+section {
+  padding: 0;
+  background: var(--color-kidnapper);
+}
+
+.section-title {
+  color: var(--color-white);
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 3rem 0 2rem;
+  background: linear-gradient(to right, #bf0000, #ff3333);
+  padding: 1.2rem 0;
+  position: relative;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.section-title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(to right, #ffcc00, #ffd700);
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+  z-index: 0;
+}
+
+.section-title span {
+  position: relative;
+  z-index: 1;
+}
+
+.section-divider {
+  width: 660px;
+  height: 37px;
+  margin: 0 auto 2rem;
+  display: none;
+}
+
+/* 商品グリッド */
+.product-grid {
+  display: flex;
+  justify-content: center;
+  gap: 89px;
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+
+/* 商品カード */
+.product-card {
+  background: #fff5f7; /* さらに薄い桃色 */
+  border-radius: 20px;
+  width: 519px;
+  position: relative;
+  padding-bottom: 100px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.product-link {
+  display: block;
+  padding: 2rem 2rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.product-image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  background: var(--color-white);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.03);
+  filter: brightness(1.05);
+}
+
+/* 商品画像の光るエフェクト */
+.product-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  z-index: 2;
+  animation: imageShine 5s infinite;
+  pointer-events: none;
+}
+
+@keyframes imageShine {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.3;
+  }
+  35%,
+  100% {
+    left: 150%;
+    opacity: 0;
+  }
+}
+
+.product-info {
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.product-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+.product-price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  position: relative;
+}
+
+.price-original {
+  color: #444444;
+  text-decoration: line-through;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+
+.discount-badge {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 2.2rem;
+  background: #e60012;
+  padding: 0.3rem 1.5rem;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+  letter-spacing: 0.05em;
+  position: relative;
+  display: inline-block;
+}
+
+.price-current {
+  color: #ff0000;
+  font-weight: 800;
+  font-size: 3rem;
+}
+
+/* 商品ページボタン */
+.product-button {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 216px;
+  height: 64px;
+  background: url(https://www.rakuten.ne.jp/gold/mogustore/sales/rakuten_marathon/202503/statics/button.png)
+    no-repeat center;
+  background-size: contain;
+  display: block;
+  font-size: 0;
+  text-indent: -9999px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.product-button:hover {
+  transform: translateX(-50%) scale(1.05);
+  filter: brightness(1.1);
+}
+
+.product-button:active {
+  transform: translateX(-50%) scale(0.98);
+  filter: brightness(0.95);
+}
+
+/* 商品ボタンの光るエフェクト */
+@keyframes buttonShine {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.product-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: buttonShine 2s infinite;
+  pointer-events: none;
+}
+
+
+
+
+/* 送料無料・1000円ポッキリセクション */
+.pockiri-section {
+  background: linear-gradient(135deg, var(--color-section-1) 0%, #ffffff 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.pockiri-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f8d7da' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  z-index: 0;
+}
+
+/* 人気アイテムセクション */
+.popular-section {
+  background: linear-gradient(to right, var(--color-section-2), #ffffff);
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.popular-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm32-53c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d0d1ff' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+  z-index: 0;
+}
+
+/* 新商品セクション */
+.new-section {
+  background: radial-gradient(
+    circle at top right,
+    var(--color-section-3),
+    #ffffff 70%
+  );
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.new-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffbd70' fill-opacity='0.1'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  z-index: 0;
+}
+
+/* お買い得品セクション */
+.bargain-section {
+  background: linear-gradient(135deg, #ffffff 0%, var(--color-section-4) 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.bargain-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: var(--color-section-4);
+  z-index: 0;
+}
+
+/* セクションコンテンツを相対位置に設定して背景パターンの上に表示 */
+.pockiri-section > *,
+.popular-section > *,
+.new-section > *,
+.bargain-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* 商品カードのスタイル調整 - セクションごとに異なる色合い */
+.pockiri-section .product-card {
+  background: var(--color-section-1);
+  border: 1px solid rgba(203, 7, 8, 0.1);
+}
+
+.popular-section .product-card {
+  background: var(--color-section-2);
+  border: 1px solid rgba(40, 182, 207, 0.1);
+}
+
+.new-section .product-card {
+  background: var(--color-section-3);
+  border: 1px solid rgba(255, 152, 0, 0.1);
+}
+
+.bargain-section .product-card {
+  background: var(--color-section-4);
+  border: 1px solid rgba(76, 175, 80, 0.1);
+}
+
+
+
+/* フッターのスタイル */
+.site-footer {
+  background: linear-gradient(135deg, #ffffff 0%, #ffffff 85%, #f8f8f8 100%);
+  padding: 3.75rem 0 0;
+  border-top: 0.0625rem solid #eee;
+  position: relative;
+  overflow: hidden;
+}
+
+.site-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23cb0708' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.footer-content {
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-search {
+  width: 100%;
+  max-width: 50rem;
+  margin: 0 auto;
+  position: relative;
+}
+
+.search-box {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+.search-input {
+  flex: 1;
+  padding: 1rem 1.25rem;
+  border: 0.0625rem solid #ddd;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 15px rgba(203, 7, 8, 0.15);
+  outline: none;
+}
+
+.search-button {
+  padding: 1rem 3rem;
+  background: linear-gradient(to right, #28b6cf, #1a9bb3);
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  white-space: nowrap;
+  box-shadow: 0 4px 10px rgba(40, 182, 207, 0.2);
+}
+
+.search-button:hover {
+  background: linear-gradient(to right, #1a9bb3, #0d8da5);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(40, 182, 207, 0.3);
+}
+
+.footer-logo-button-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.25rem 0;
+}
+
+.footer-logo {
+  margin: 0;
+  position: relative;
+}
+
+.mogu-logo {
+  height: 7.5rem; /* 120px相当 */
+  width: auto;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  transition: all 0.3s ease;
+}
+
+.mogu-logo:hover {
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.15));
+  transform: translateY(-3px);
+}
+
+.footer-top-button {
+  display: inline-block;
+  padding: 0.75rem 2.5rem;
+  background: linear-gradient(to right, #ffb366, #ff9933);
+  color: #444;
+  text-decoration: none;
+  border-radius: 2rem;
+  font-weight: bold;
+  transition: all 0.3s;
+  margin: 0;
+  box-shadow: 0 4px 10px rgba(255, 179, 102, 0.3);
+}
+
+.footer-top-button:hover {
+  background: linear-gradient(to right, #ffd5a1, #ffb366);
+  transform: translateY(-0.1875rem);
+  box-shadow: 0 6px 15px rgba(255, 179, 102, 0.4);
+}
+
+.footer-top-button:active {
+  transform: translateY(-0.0625rem);
+  box-shadow: 0 3px 8px rgba(255, 179, 102, 0.3);
+}
+
+.footer-nav {
+  width: 100%;
+  padding: 2rem 0;
+  border-top: 0.0625rem solid #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+}
+
+.footer-nav::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    rgba(203, 7, 8, 0),
+    rgba(203, 7, 8, 0.1),
+    rgba(203, 7, 8, 0)
+  );
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.footer-links a {
+  color: #666;
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: all 0.3s;
+  position: relative;
+  padding: 0.3rem 0;
+}
+
+.footer-links a:hover {
+  color: var(--color-primary);
+}
+
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-primary);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.footer-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* ソーシャルメディアアイコン */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: #f5f5f5;
+  color: #666;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.social-icon:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.social-icon.twitter {
+  background: linear-gradient(135deg, #f5f5f5, #e1e8ed);
+  color: #1da1f2;
+}
+
+.social-icon.twitter:hover {
+  background: #1da1f2;
+  color: white;
+}
+
+.social-icon.facebook {
+  background: linear-gradient(135deg, #f5f5f5, #e6eaf4);
+  color: #4267b2;
+}
+
+.social-icon.facebook:hover {
+  background: #4267b2;
+  color: white;
+}
+
+.social-icon.instagram {
+  background: linear-gradient(135deg, #f5f5f5, #f3e5f5);
+  color: #c13584;
+}
+
+.social-icon.instagram:hover {
+  background: linear-gradient(
+    45deg,
+    #405de6,
+    #5851db,
+    #833ab4,
+    #c13584,
+    #e1306c,
+    #fd1d1d
+  );
+  color: white;
+}
+
+.social-icon.line {
+  background: linear-gradient(135deg, #f5f5f5, #e5f7e5);
+  color: #00b900;
+}
+
+.social-icon.line:hover {
+  background: #00b900;
+  color: white;
+}
+
+/* フッターの著作権表示 */
+.copyright {
+  text-align: center;
+  padding: 1.5rem 0;
+  color: #999;
+  font-size: 0.75rem;
+  margin-top: 1rem;
+}
+
+
+/* カレンダー風カウントダウンのスタイル */
+.calendar-countdown {
+  text-align: center;
+  margin: 30px auto;
+  max-width: 600px;
+  background: linear-gradient(135deg, #fff0f0 0%, #fff8f8 100%);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(203, 7, 8, 0.15);
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(203, 7, 8, 0.2);
+}
+
+.calendar-countdown::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  animation: pulse 3s infinite;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0.3;
+  }
+}
+
+.calendar-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  color: var(--color-primary);
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8);
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  padding: 5px 20px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.8) 20%,
+    rgba(255, 255, 255, 0.8) 80%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.calendar-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    rgba(203, 7, 8, 0) 0%,
+    rgba(203, 7, 8, 0.5) 50%,
+    rgba(203, 7, 8, 0) 100%
+  );
+}
+
+.calendar-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.calendar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.calendar-page {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+  border: none;
+  border-radius: 12px;
+  width: 80px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1), inset 0 -4px 0 rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.calendar-page:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15),
+    inset 0 -4px 0 rgba(0, 0, 0, 0.05);
+}
+
+.calendar-page:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: linear-gradient(to right, var(--color-primary), #ff3333);
+  z-index: 0;
+}
+
+.calendar-page:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.8) 100%
+  );
+  z-index: 0;
+  opacity: 0.5;
+}
+
+.calendar-page span {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #333;
+  position: relative;
+  z-index: 1;
+  margin-top: 15px;
+  text-shadow: 2px 2px 0 rgba(255, 255, 255, 1), -1px -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.calendar-label {
+  margin-top: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #333;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 3px 10px;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 秒の表示を点滅させる */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+#countdown-seconds {
+  animation: blink 1s infinite;
+  color: var(--color-primary);
+}
+
+/* 緊急性を伝えるリボン */
+.calendar-countdown::after {
+  content: "期間限定";
+  position: absolute;
+  top: 20px;
+  right: -30px;
+  background: var(--color-secondary);
+  color: #333;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 5px 40px;
+  transform: rotate(45deg);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+/* キャンペーン終了メッセージのスタイル */
+.campaign-ended {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #666;
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #f5f5f5 0%, #e5e5e5 100%);
+  border-radius: 10px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 1);
+}
+
+/* 商品説明文のスタイル */
+.product-description {
+  white-space: pre-line; /* 改行を保持して表示 */
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #333;
+  word-break: keep-all; /* 単語の途中での改行を防止 */
+  overflow-wrap: break-word; /* 長い単語は必要に応じて折り返し */
+  text-align: left; /* テキストを左揃えに */
+}
+
+/* 商品なしメッセージのスタイル */
+.no-products {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* 価格範囲のスタイル */
+.price-range {
+  display: block;
+  font-weight: bold;
+  color: #ff0000;
+  font-size: 3rem;
+  margin-top: 0.3rem;
+}
+
+@keyframes pulsatePrice {
+  0%,
+  100% {
+    transform: scale(1);
+    text-shadow: 0 0 5px rgba(203, 7, 8, 0.2);
+  }
+  50% {
+    transform: scale(1.05);
+    text-shadow: 0 0 10px rgba(203, 7, 8, 0.3);
+  }
+}
+
+/* 1000円ポッキリセクション */
+.price-1000 {
+  padding: 2rem 0 5rem;
+  background: var(--color-background);
+}
+
+.price-1000 .product-grid {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.price-1000 .product-card {
+  width: 100%;
+  max-width: 519px;
+  margin: 0 auto;
+}
+
+.price-1000 .product-title {
+  font-size: 1.5rem;
+  color: var(--color-black);
+  margin-bottom: 1rem;
+}
+
+.price-1000 .price-current {
+  font-size: 2.5rem;
+  color: var(--color-primary);
+  font-weight: 700;
+  margin: 1rem 0;
+}
+
+.price-1000 .product-description {
+  font-size: 1rem;
+  color: var(--color-black);
+  line-height: 1.6;
+  margin: 1rem 0;
+}
+
+/* カテゴリナビ */
+.category-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  padding: 15px 0;
+}
+
+.category-list {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.category-list::-webkit-scrollbar {
+  display: none;
+}
+
+.category-list li {
+  flex: 0 0 auto;
+}
+
+.category-list a {
+  display: block;
+  padding: 12px 30px;
+  color: var(--color-primary);
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-radius: 25px;
+  background: var(--color-white);
+  border: 2px solid var(--color-primary);
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.category-list a:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.to-top .arrow {
+  color: #666;
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 0.8;
+  text-align: center;
+  transform: translateY(-4px);
+}
+
+.to-top:hover {
+  opacity: 0.8;
+}
+
+/* スクロール時のナビゲーション表示/非表示アニメーション */
+.scroll-down .category-section.sticky {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.scroll-up .category-section.sticky {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* タップ時のフィードバック改善 */
+.category-button:active,
+.product-button:active,
+.footer-top-button:active,
+.search-button:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+/* 価格表示の視認性向上 */
+.price-current,
+.price-range {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.discount-badge {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 2.2rem;
+  background: #e60012;
+  padding: 0.3rem 1.5rem;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+  letter-spacing: 0.05em;
+  position: relative;
+  display: inline-block;
+}
+
+/* タッチデバイス向けの調整 */
+.touch-device .category-button,
+.touch-device .product-button,
+.touch-device .footer-top-button,
+.touch-device .search-button,
+.touch-device .social-icon {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.touch-device .category-button:hover {
+  transform: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.touch-device .product-card:hover {
+  transform: none;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.touch-device .product-card:hover .product-image {
+  transform: none;
+  filter: brightness(1);
+}
+
+.touch-device .calendar-page:hover {
+  transform: none;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1), inset 0 -4px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* アクティブ状態のスタイル強化 */
+.touch-device .category-button:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(to right, #ff3333, #bf0000);
+}
+
+.touch-device .product-card:active {
+  transform: scale(0.98);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.touch-device .footer-top-button:active {
+  transform: scale(0.95);
+  background: linear-gradient(to right, #ffb366, #ff9933);
+}
+
+.touch-device .search-button:active {
+  transform: scale(0.95);
+  background: linear-gradient(to right, #1a9bb3, #0d8da5);
+}
+
+/* スクロールの滑らかさ向上 */
+.touch-device {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* フォーカス状態の視認性向上 */
+.touch-device input:focus,
+.touch-device button:focus,
+.touch-device a:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(203, 7, 8, 0.3);
+}
+
+.product-card--coupon {
+  background-color: #fff3a5;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  padding-bottom: 60px;
+  margin: 0;
+}
+
+.product-card--coupon .product-image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  background: #fff;
+}
+
+.product-card--coupon .product-description {
+  display: none !important;
+}
+
+.product-card--coupon .product-price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  white-space: nowrap;
+}
+
+.product-card--coupon .discount-badge {
+  color: #fff !important;
+  background: #e60012 !important;
+  font-size: 2.2rem !important;
+  font-weight: 800 !important;
+  padding: 0.3rem 1.5rem !important;
+  border-radius: 4px !important;
+  margin: 0.5rem 0 !important;
+  letter-spacing: 0.05em !important;
+  display: inline-block !important;
+}
+
+.product-card--coupon .price-current {
+  color: #e60012 !important;
+  font-weight: 800 !important;
+  font-size: 3.2rem !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em !important;
+  position: relative !important;
+  display: inline-block !important;
+  padding: 0 0.5rem !important;
+}
+
+.product-card--coupon .price-current::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(230, 0, 18, 0.15);
+}
+
+.product-card--coupon .coupon-button {
+  display: inline-block;
+  margin: auto auto 0;
+  background: linear-gradient(to bottom, #c90908, #a50000);
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 1rem;
+  border-radius: 6px;
+  text-align: center;
+  transition: 0.3s;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+  color: #fff;
+}
+
+.product-card--coupon .coupon-button:hover {
+  background: linear-gradient(to bottom, #a50000, #c90908);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.2);
+}
+
+.mothersday-banner-section {
+  position: relative;
+  padding: 4rem 0;
+  background: #fbf2e7;
+}
+
+.mothersday-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  max-width: 1300px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.mothersday-catch {
+  flex: 1;
+  min-width: 300px;
+  text-align: left;
+  padding-right: 0;
+}
+
+.mothersday-catch-img {
+  width: 100%;
+  max-width: 680px;
+  height: auto;
+}
+
+.mothersday-product {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 1rem;
+}
+
+.mothersday-product-img {
+  width: 100%;
+  max-width: 580px;
+  height: auto;
+  margin-bottom: -40px;
+  margin-right: -30px;
+}
+
+.mothersday-campaign {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.campaign-period {
+  margin-bottom: 2rem;
+}
+.campaign-period-label {
+  display: block;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+.period-date {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+.period-date small {
+  font-size: 0.8em;
+  margin: 0 0.2em;
+}
+.campaign-gift {
+  margin-bottom: 2rem;
+}
+.gift-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.gift-text .product-name {
+  white-space: nowrap;
+  display: inline-block;
+}
+.gift-text strong {
+  color: #e87b99;
+}
+.campaign-button {
+  display: inline-block;
+  padding: 1rem 3rem;
+  background: #e87b99;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+.campaign-button:hover {
+  background: #d66d8b;
+}
+
+.period-date-box {
+    border: 2px solid #e87b99;
+    border-radius: 15px;
+    padding: 2rem 1rem 1.5rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    font-size: 1.8rem;
+    color: #e87b99;
+}
+
+.period-date-box .date {
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+.period-date-box .time {
+  font-size: 2rem;
+}
+.period-date-box .day-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #e87b99;
+  color: #fff;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  margin: 0 0.3rem;
+}
+.period-date-box .notice {
+  font-size: 1rem;
+  margin-left: 1rem;
+}
+
+.coupon-notice {
+  color: #666;
+  font-size: var(--font-size-lg);
+  margin-top: 1.5rem;
+  text-align: center;
+  line-height: var(--line-height-relaxed);
+  padding: 0 1rem;
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+@keyframes cardAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .coupon-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .coupon-section {
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+  }
+  .coupon-logo {
+    max-width: 250px;
+    margin-bottom: 1rem;
+  }
+  .coupon-message {
+    flex: 0 0 100%;
+    margin-bottom: 1rem;
+    min-width: auto;
+  }
+  .coupon-content {
+    flex: 0 0 100%;
+  }
+  .product-card--coupon {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0 0.5rem;
+  }
+  .product-card--coupon .discount-badge,
+  .product-card--coupon .price-current {
+    font-size: 1.8rem !important;
+  }
+  .coupon-notice {
+    font-size: var(--font-size-sm);
+    margin-top: 1.2rem;
+  }
+  .category-wrapper {
+    padding: 1rem;
+  }
+  .category-section.sticky {
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(203, 7, 8, 0.15);
+    border-bottom: none;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .category-section.sticky .category-buttons,
+  .category-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    padding: 0 0.5rem;
+  }
+  .category-section.sticky .category-row,
+  .category-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    width: 100%;
+    padding-bottom: 5px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .category-row::-webkit-scrollbar {
+    display: none;
+  }
+  .category-section.sticky .category-button,
+  .category-button {
+    width: 100%;
+    min-width: 0;
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+    line-height: 1.3;
+    white-space: normal;
+    flex: 1 1 auto;
+    background: linear-gradient(to right, #bf0000, #ff3333);
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    justify-content: space-between;
+    height: auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .category-section.sticky .category-icon,
+  .category-icon {
+    display: none;
+    width: 20px;
+    height: auto;
+  }
+  .category-section.sticky .category-text,
+  .category-text {
+    font-size: 0.9rem;
+    line-height: 1.3;
+    text-align: left;
+    padding: 0;
+    width: auto;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  .category-section.sticky .category-text br,
+  .category-text br {
+    display: none;
+  }
+  .category-button:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  /* 商品カード */
+  .product-grid {
+    gap: 2rem;
+  }
+  .product-card {
+    width: calc(100% - 2rem);
+    max-width: 519px;
+    padding-bottom: 90px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .product-card:active {
+    transform: scale(0.98);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  .product-link {
+    padding: 1rem 1rem 0;
+  }
+  .product-info {
+    padding: 1rem;
+  }
+  .product-title {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+  .price-original {
+    font-size: 1.3rem;
+  }
+  .price-current {
+    font-size: 2.5rem;
+  }
+  .discount-badge {
+    font-size: 1.8rem;
+    padding: 0.2rem 1.2rem;
+  }
+  .product-button {
+    bottom: 15px;
+    height: 56px;
+    width: 200px;
+  }
+  .product-price .price-range {
+    font-size: 2rem !important;
+  }
+  .price-1000 .product-title {
+    font-size: 1.25rem;
+  }
+  .price-1000 .price-current {
+    font-size: 2rem;
+  }
+  .price-1000 .product-description {
+    font-size: 0.9rem;
+  }
+
+  /* カレンダー・カウントダウン */
+  .calendar-countdown {
+    margin: 1.5rem auto;
+    padding: 0.5rem;
+  }
+  .calendar-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  .calendar-container {
+    gap: 0.3rem;
+    justify-content: center;
+  }
+  .calendar-page {
+    width: 60px;
+    height: 70px;
+    margin: 0 0.2rem;
+    position: relative;
+  }
+  .calendar-page:before {
+    height: 20px;
+    top: 0;
+    border-radius: 5px 5px 0 0;
+  }
+  .calendar-number {
+    font-size: 2.2rem;
+    margin-top: 20px;
+  }
+  .calendar-unit {
+    font-size: 0.8rem;
+    margin-top: 0;
+  }
+
+  /* フッター */
+  .site-footer {
+    margin-bottom: 180px;
+    padding: 2.5rem 0 0;
+  }
+  .footer-content {
+    gap: 1.875rem;
+  }
+  .footer-logo-button-wrapper {
+    gap: 1.25rem;
+  }
+  .mogu-logo {
+    height: 6rem;
+  }
+  .search-box {
+    flex-direction: column;
+  }
+  .search-button {
+    width: 100%;
+  }
+  .footer-links {
+    width: 100%;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .footer-top-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    margin: 0;
+  }
+  .social-links {
+    gap: 1rem;
+  }
+  .social-icon {
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 1rem;
+  }
+
+  /* その他 */
+  .pockiri-section,
+  .popular-section,
+  .new-section,
+  .bargain-section {
+    padding: 1.5rem 0;
+    border-radius: 8px;
+  }
+  .to-top {
+    right: 15px;
+    bottom: 85px;
+    width: 40px;
+    height: 40px;
+  }
+  .to-top .arrow {
+    font-size: 20px;
+    line-height: 0.8;
+    transform: translateY(-2px);
+  }
+  .gift-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 0 0.5rem;
+  }
+  .mothersday-banner-section {
+    padding: 2rem 1rem;
+  }
+  .mothersday-banner {
+    flex-direction: column;
+    padding: 0;
+    gap: 1rem;
+  }
+  .mothersday-catch {
+    padding-right: 0;
+    margin-bottom: 1rem;
+    text-align: center;
+    min-width: 100%;
+  }
+  .mothersday-catch-img {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .mothersday-product {
+    width: 100%;
+    margin-right: 0;
+    align-items: center;
+    min-width: 100%;
+  }
+  .mothersday-product-img {
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+  .mothersday-campaign {
+    text-align: center;
+  }
+  .period-date-box {
+    padding: 1.8rem 0.8rem 1.2rem;
+    font-size: 1.4rem;
+    flex-wrap: wrap;
+  }
+  .period-date-box .date {
+    font-size: 1.8rem;
+  }
+  .period-date-box .time {
+    font-size: 1.6rem;
+  }
+  .period-date-box .day-label {
+    width: 1.6rem;
+    height: 1.6rem;
+    font-size: 0.9rem;
+  }
+  .period-date-box .notice {
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-title {
+    font-size: 1rem;
+  }
+  .price-original {
+    font-size: 0.9rem;
+  }
+  .price-current {
+    font-size: 2rem;
+  }
+  .discount-badge {
+    font-size: 1.6rem;
+  }
+  .product-button {
+    height: 50px;
+    width: 180px;
+  }
+  .calendar-countdown {
+    margin: 1rem auto;
+    padding: 0.3rem;
+  }
+  .calendar-title {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+  .calendar-container {
+    gap: 0.2rem;
+  }
+  .calendar-page {
+    width: 50px;
+    height: 60px;
+    margin: 0 0.1rem;
+  }
+  .calendar-page:before {
+    height: 15px;
+  }
+  .calendar-number {
+    font-size: 1.8rem;
+    margin-top: 15px;
+  }
+  .calendar-unit {
+    font-size: 0.7rem;
+  }
+  .footer-top-button {
+    padding: 0.625rem 1.25rem;
+    border-radius: 1.5rem;
+  }
+  .footer-nav {
+    padding: 1.5rem 0;
+    gap: 1.5rem;
+  }
+  .mogu-logo {
+    height: 5rem;
+  }
+  .footer-links {
+    gap: 1.5rem;
+  }
+  .social-links {
+    gap: 0.8rem;
+  }
+  .social-icon {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.9rem;
+  }
+  .category-button {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  .category-text {
+    font-size: 0.85rem;
+  }
+  .category-text br {
+    display: inline;
+  }
+  .category-section.sticky .category-button {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+  .category-section.sticky .category-text br {
+    display: inline;
+  }
+  .product-card--coupon {
+    width: 100%;
+  }
+}
