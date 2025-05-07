@@ -3,9 +3,9 @@ const path = require('path');
 const CleanCSS = require('clean-css');
 
 // ファイルパスの設定
-const htmlFile = 'index.html';
-const cssFile = path.join('css', 'styles.css');
-const outputFile = 'index.inline.html';
+const htmlFile = 'index_test.html';
+const cssFile = 'test.css';
+const outputFile = 'index.inline.new.html';
 
 // CSSの読み込みと最小化
 const css = fs.readFileSync(cssFile, 'utf8');
@@ -25,7 +25,7 @@ const minifiedCss = new CleanCSS({
 let html = fs.readFileSync(htmlFile, 'utf8');
 
 // 外部CSSリンクを探して削除
-html = html.replace(/<link[^>]*href=['"]css\/styles\.css['"][^>]*>/i, '');
+html = html.replace(/<link[^>]*href=['"]test\.css['"][^>]*>/i, '');
 
 // インラインCSSの挿入
 const styleTag = `<style>${minifiedCss}</style>`;

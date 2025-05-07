@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TPF4TZWK');</script>
+    <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -8,6 +15,14 @@
       content="楽天市場MOGUストアのお買い物マラソン特集ページです。送料無料・1000円ポッキリ商品、人気アイテム、新商品、お買い得品を多数ご用意しています。"
     />
     <title>楽天 お買い物マラソン - MOGUストア</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
     <link rel="preconnect" href="https://www.rakuten.ne.jp" />
     <link rel="preconnect" href="https://www.rakuten.co.jp" />
     <link rel="preconnect" href="https://image.rakuten.co.jp" />
@@ -17,6 +32,10 @@
     <link rel="stylesheet" href="test.css" />
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TPF4TZWK"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div class="container">
       <!-- セールヘッダー -->
       <header id="top" class="sale-header">
@@ -688,7 +707,7 @@
 
         card.innerHTML = `
           <div class="product-link">
-            <a href="${product.link}" target="_blank" rel="noopener">
+            <a href="${product.link}" target="_blank" rel="noopener" onclick="gtag('event', 'product_click', {'product_id': '${product.id}', 'product_name': '${product.title}', 'price': ${product.currentPrice}});">
               <img
                 src="${getImageUrl(product)}"
                 alt="${product.title}"
@@ -708,7 +727,7 @@
           </div>
           <a href="${buttonLink}" class="${
           isCoupon ? "coupon-button" : "product-button"
-        }" target="_blank" rel="noopener">
+        }" target="_blank" rel="noopener" onclick="gtag('event', '${isCoupon ? 'coupon_get' : 'product_button_click'}', {'product_id': '${product.id}', 'product_name': '${product.title}', 'price': ${product.currentPrice}});">
             ${isCoupon ? "クーポンをGETする" : "商品ページ"}
           </a>
         `;
